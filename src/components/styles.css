@@ -1,0 +1,12 @@
+@import "primereact/resources/themes/lara-light-cyan/theme.css";
+@import "primeicons/primeicons.css";
+
+
+:root {
+    --background: #183D3D;
+    --main: #040D12;
+    --font-primary: #E7DFC6;
+    --detail1: #5C8374;
+    --detail2: #93B1A6;
+    --detail3: #F1E9DB;
+}
