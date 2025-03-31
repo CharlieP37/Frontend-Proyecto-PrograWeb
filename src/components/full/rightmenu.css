@@ -1,0 +1,16 @@
+/* General Style */
+
+.main-right-menu-container {
+    background-color: var(--main);
+    border-radius: 60px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.right-menu-content-container {
+    border: 1px solid var(--font-primary);
+    border-radius: 60px;
+    width: 100%;
+    height: 100%;
+}
