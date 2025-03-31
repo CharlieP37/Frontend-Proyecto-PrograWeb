@@ -1,0 +1,43 @@
+/* General Style */
+
+.button-container {
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--detail1);
+    border-radius: 60px;
+    padding: 5px;
+    width: calc(100% - 0px);
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.custom-button {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    text-align: center;
+    border-style: solid;
+    border-color: var(--font-primary);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 12px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: var(--font-primary);
+    color: var(--detail1);
+    border-color: var(--detail1);
+    border-style: solid;
+    border-spacing: 0px;
+    cursor: pointer;
+}
+
+.custom-button:active {
+    background: var(--detail3);
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+       -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+            box-shadow: inset 0px 0px 5px #c1c1c1;
+     outline: none;
+}
