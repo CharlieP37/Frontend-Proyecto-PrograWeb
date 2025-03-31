@@ -9,6 +9,8 @@
 }
 
 .navbar-inner-container {
+    display: flex;
+    flex-direction: row;
     border: 1px solid var(--font-primary);
     border-radius: 60px;
     width: 100%;
@@ -16,9 +18,44 @@
 
 .navbar-image-container {
     margin-left: 30px;
+    flex: 1;
+    -ms-flex-align: center;
 }
 
-#logoIcon {
+#logoIcon
+{
     width: 52px;
     height: 52px;
+    justify-self: center;
+    justify-content: center;
+    -ms-flex-align: center;
+}
+
+
+#profileIcon {
+    width: 56px;
+    height: 56px;
+}
+
+.navbar-logon-container {
+    display: flex;
+    flex-direction: row;
+    margin-right: 30px;
+    justify-content: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.navbar-account-icon-container {
+    background-color: var(--font-primary);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    justify-content: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+#signoutBtnContainer {
+    margin-left: 10px;
 }
