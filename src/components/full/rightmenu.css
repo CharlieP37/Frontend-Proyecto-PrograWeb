@@ -10,7 +10,7 @@
 
 .right-menu-content-container {
     border: 1px solid var(--font-primary);
-    border-radius: 60px;
+    border-radius: 50px;
     width: 100%;
     height: 100%;
 }

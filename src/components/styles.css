@@ -25,6 +25,10 @@ body{
     color: var(--font-primary);
 }
 
+.credits-location-container {
+    text-align: center;
+}
+
 .titles-font-style {
     font-family: "Shrikhand", serif;
     text-align: center;

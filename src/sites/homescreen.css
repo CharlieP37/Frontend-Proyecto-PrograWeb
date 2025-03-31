@@ -1,0 +1,50 @@
+/* General Style */
+
+.main-homescreen-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0 20px;
+}
+
+.menu-location-container {
+    display: flex;
+    flex: 1;
+}
+
+.navbar-location-container {
+    flex: 0 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 10px 10px;
+    border-radius: 60px;
+}
+                
+.left-menu-location-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 60px;
+}
+
+.right-menu-location-container {
+    background-color: var(--main);
+    flex: 2.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 60px;
+}
+
+.actionbar-location-container {
+    flex: 0 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 10px 0px;
+    border-radius: 60px;
+}
