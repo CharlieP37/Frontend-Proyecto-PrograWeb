@@ -1,0 +1,328 @@
+/* General Style */
+
+.create-form-container {
+    display: flexbox;
+    align-items: center;
+    text-align: center;
+    background-color: var(--main);
+    margin:  10px 60px 20px;
+    padding: 10px;
+}
+
+.name-container h1 {
+    color: var(--font-primary) !important;
+    padding: 0;
+    margin-left: 30px;
+}
+
+.calendar-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.createaccount-btn-container {
+    justify-self: center;
+    width: 65%;
+}
+
+/* Calendar Input Style */
+
+.calendar-group input {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    border-radius: 60px;
+    border-color: var(--font-primary);
+    padding: 10px;
+}
+
+span > .p-inputtext:enabled:focus{
+    border-color: none !important;
+    box-shadow: none !important;
+}
+
+span > .p-inputtext:hover{
+    box-shadow: none !important;
+}
+
+span > .p-inputtext:hover{
+    box-shadow: none !important;
+}
+
+.p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext { 
+    box-shadow: none !important;
+}
+
+/* Calendar and Button div*/
+
+.calendar-button-container {
+    background-color: var(--detail1);
+    padding: 5px;
+    justify-content: center;
+    border-radius: 60px;
+}
+
+/* Calendar Button */
+
+.calendar-group button {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    padding: 8px 20px;
+    margin-left: 12px;
+    justify-content: center;
+    border-radius: 60px;
+    border-color: var(--font-primary);
+}
+
+.calendar-group button:focus {
+    box-shadow: none !important;
+}
+
+span > .p-button:enabled:focus{
+    border-color: none !important;
+    box-shadow: none !important;
+}
+
+span > .p-button:hover{
+    box-shadow: none !important;
+}
+
+#calendarBtn:hover {
+    background-color: var(--font-primary);
+    color: var(--detail1);
+    border-color: var(--detail1);
+    border-style: solid;
+    border-spacing: 0px;
+    cursor: pointer;
+}
+
+#calendarBtn:active {
+    background: var(--detail3);
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+       -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+            box-shadow: inset 0px 0px 5px #c1c1c1;
+     outline: none;
+}
+
+/* Calendar Button Image */
+
+.calendar-button-container #calendarIcon {
+    width: 70%;
+    height: auto;
+}
+
+#calendarBtn:hover #calendarIcon {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(26%) saturate(284%) hue-rotate(135deg) brightness(97%) contrast(87%);
+}
+
+/* FloatLabel Style for Input */
+
+.username-group,
+.email-group,
+.pass-group {
+    margin-bottom: 40px;
+}
+
+#passwordconfirmContainer {
+    margin-bottom: -20px;
+}
+
+#passwordContainer {
+    margin-bottom: 40px;
+}
+
+#usernameLabel,
+#emailLabel,
+#passwordLabel,
+#passwordconfirmLabel {
+    color: var(--font-primary);
+}
+
+.p-float-label > #usernameLabel,
+.p-float-label > #emailLabel,
+.p-float-label > #passwordLabel,
+.p-float-label > #passwordconfirmLabel
+{
+    left: 0.75rem;
+    transition-duration: 0.2s;
+}
+
+.p-float-label:has(input:focus) #usernameLabel, .p-float-label:has(input.p-filled) #usernameLabel, .p-float-label:has(input:-webkit-autofill) #usernameLabel, .p-float-label:has(textarea:focus) #usernameLabel, .p-float-label:has(textarea.p-filled) #usernameLabel, .p-float-label:has(.p-inputwrapper-focus) #usernameLabel, .p-float-label:has(.p-inputwrapper-filled) #usernameLabel
+{
+    left: 9rem;
+    font-size: 12px;
+}
+
+.p-float-label:has(input:focus) #emailLabel, .p-float-label:has(input.p-filled) #emailLabel, .p-float-label:has(input:-webkit-autofill) #emailLabel, .p-float-label:has(textarea:focus) #emailLabel, .p-float-label:has(textarea.p-filled) #emailLabel, .p-float-label:has(.p-inputwrapper-focus) #emailLabel, .p-float-label:has(.p-inputwrapper-filled) #emailLabel {
+    left: 7.25rem;
+    font-size: 12px;
+}
+
+.p-float-label:has(input:focus) #passwordLabel, .p-float-label:has(input.p-filled) #passwordLabel, .p-float-label:has(input:-webkit-autofill) #passwordLabel, .p-float-label:has(textarea:focus) #passwordLabel, .p-float-label:has(textarea.p-filled) #passwordLabel, .p-float-label:has(.p-inputwrapper-focus) #passwordLabel, .p-float-label:has(.p-inputwrapper-filled) #passwordLabel {
+    left: 8rem;
+    font-size: 12px;
+}
+
+.p-float-label:has(input:focus) #passwordconfirmLabel, .p-float-label:has(input.p-filled) #passwordconfirmLabel, .p-float-label:has(input:-webkit-autofill) #passwordconfirmLabel, .p-float-label:has(textarea:focus) #passwordconfirmLabel, .p-float-label:has(textarea.p-filled) #passwordconfirmLabel, .p-float-label:has(.p-inputwrapper-focus) #passwordconfirmLabel, .p-float-label:has(.p-inputwrapper-filled) #passwordconfirmLabel {
+    left: 6.50rem;
+    font-size: 12px;
+}
+
+/* FloatLabel Style for Calendar */
+
+.p-float-label > #birthDateLabel {
+    left: 1.10rem;
+    transition-duration: 0.2s;
+}
+
+.p-float-label:has(input:focus) #birthDateLabel, .p-float-label:has(input.p-filled) #birthDateLabel, .p-float-label:has(input:-webkit-autofill) #birthDateLabel, .p-float-label:has(textarea:focus) #birthDateLabel, .p-float-label:has(textarea.p-filled) #birthDateLabel, .p-float-label:has(.p-inputwrapper-focus) #birthDateLabel, .p-float-label:has(.p-inputwrapper-filled) #birthDateLabel {
+    left: 7.25rem;
+    font-size: 12px;
+}
+
+#birthDateLabel {
+    color: var(--font-primary);
+}
+
+/* Create Button Style */
+
+#createaccountBtnContainer {
+    display: flex;
+    margin-top: 40px;
+}
+
+/* Calendar Date Picker Style */
+
+.custom-datetimepicker-panel {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    border-radius: 30px;
+    outline: var(--font-primary) solid;
+    outline-offset: -10px;
+
+}
+
+/* Calendar Date Picker Header Style */
+
+.custom-datetimepicker-panel .p-datepicker-header {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    border: none;
+}
+
+.custom-datetimepicker-panel .p-datepicker-header .p-datepicker-title .p-datepicker-month,
+.custom-datetimepicker-panel .p-datepicker-header .p-datepicker-title .p-datepicker-year, 
+.custom-datetimepicker-panel .p-datepicker-header .p-datepicker-next,
+.custom-datetimepicker-panel .p-datepicker-header .p-datepicker-prev {
+    color: var(--font-primary);
+}
+
+.p-datepicker .p-datepicker-header .p-datepicker-prev:enabled:hover, 
+.p-datepicker .p-datepicker-header .p-datepicker-next:enabled:hover {
+    background-color: var(--font-primary);
+    color: var(--detail1);
+}
+
+/* Calendar Date Picker Buttom Style */
+
+.custom-datetimepicker-panel .p-datepicker-buttonbar {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    padding: 0.25rem 0 0.5rem;
+}
+
+.custom-datetimepicker-panel .p-datepicker-buttonbar .p-button {
+    color: var(--font-primary);
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.custom-datetimepicker-panel .p-datepicker-buttonbar .p-button:focus {
+    color: var(--font-primary);
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.custom-datetimepicker-panel .p-datepicker-buttonbar .p-button:enabled:focus {
+    color: var(--font-primary);
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.custom-datetimepicker-panel .p-datepicker-buttonbar {
+    background-color: var(--detail1);
+    border: none;
+}
+
+/* Calendar Date Picker Calendar Day Style */
+
+.custom-datetimepicker-panel table td.p-datepicker-today > span {
+    background-color: var(--detail2);
+    color: var(--detail1);
+}
+
+.p-datepicker table td > span {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: box-shadow 0.2s;
+    border: 1px solid transparent;
+}
+
+.p-datepicker table td > span:hover {
+    background-color: var(--font-primary);
+    color: var(--detail1);
+}
+
+.p-datepicker table td > span:hover:active {
+    background-color: var(--detail3);
+    color: var(--detail1);
+}
+
+.p-datepicker table td > span:focus {
+    background-color: var(--font-primary);
+    color: var(--detail1);
+    box-shadow: none;
+}
+
+.p-datepicker table td > span.p-highlight {
+    background: var(--detail3);
+    color: var(--main);
+}
+
+/* Calendar Date Picker Calendar Month Style */
+
+.custom-datetimepicker-panel .p-monthpicker .p-monthpicker-month:hover {
+    background-color: var(--font-primary);
+    color: var(--detail1);
+}
+
+.custom-datetimepicker-panel .p-monthpicker .p-monthpicker-month:hover:active {
+    background-color: var(--detail3);
+    color: var(--detail1);
+}
+
+.custom-datetimepicker-panel .p-monthpicker .p-monthpicker-month:focus {
+    background-color: none;
+    box-shadow: none;
+}
+
+/* Calendar Date Picker Calendar Year Style */
+
+.custom-datetimepicker-panel .p-yearpicker .p-yearpicker-year:hover {
+    background-color: var(--font-primary);
+    color: var(--detail1);
+}
+
+.custom-datetimepicker-panel .p-yearpicker .p-yearpicker-year:hover:active {
+    background-color: var(--detail3);
+    color: var(--detail1);
+}
+
+.custom-datetimepicker-panel .p-yearpicker .p-yearpicker-year:focus {
+    background-color: none;
+    box-shadow: none;
+}
