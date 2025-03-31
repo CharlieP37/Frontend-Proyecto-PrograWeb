@@ -1,0 +1,13 @@
+.photo-method-selector {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 700px;
+}
+
+.photo-divider {
+    width: 3px;
+    height: 200px;
+    background-color: var(--font-primary);
+    border-radius: 50%;
+}

@@ -1,0 +1,72 @@
+.camera-dialog .p-dialog-content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .camera-feed, .captured-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 70vh;
+    background-color: var(--background);
+    border-radius: 4px;
+    border: 2px solid var(--detail2);
+    aspect-ratio: 4/3;
+  }
+  
+  .error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: var(--font-primary);
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .error-message i {
+    font-size: 2rem;
+    color: var(--detail1);
+  }
+  
+  .photo-preview {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .dialog-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    border-top: 1px solid var(--detail2);
+  }
+  
+  .capture-button {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    border: 1px solid var(--detail2);
+    margin: 1rem;
+  }
+  
+  .save-button {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    border: 1px solid var(--detail2);
+  }
+  
+  .retry-button {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    border: 1px solid var(--detail2);
+    margin: 1rem;
+  }
+  
+  .capture-button:hover, 
+  .save-button:hover,
+  .retry-button:hover {
+    background-color: var(--detail2);
+  }

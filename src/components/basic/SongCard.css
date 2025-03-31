@@ -1,0 +1,106 @@
+.song-card {
+  display: flex;
+  align-items: center;
+  background-color: var(--detail1);
+  border-radius: 50px;
+  width: 100%;
+  height: 80px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+  margin: 5px 0;
+  position: relative;
+  padding: 3px;
+  min-width: 400px;;
+}
+
+.song-card::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border-radius: 47px;
+  border: 1px solid var(--font-primary);
+  pointer-events: none;
+}
+
+.song-image-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--font-primary);
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.song-image {
+  width: 150%;
+  height: 150%;
+  object-fit: contain;
+}
+
+.song-info {
+  display: flex;
+  flex-grow: 1;
+  align-items: center; 
+  height: 100%;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.text-content {
+  flex: 1;
+  overflow: hidden;
+  padding-right: 6rem;
+}
+
+.artist-name {
+  font-size: 0.9rem;
+  color: var(--font-primary);
+  margin: 0 0 3px 0;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-title {
+  font-size: 1.1rem;
+  color: var(--font-primary);
+  margin: 0;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emotion-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.emotion-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.song-cards-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: var(--background);
+}

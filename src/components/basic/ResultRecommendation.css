@@ -1,0 +1,72 @@
+.result-container {
+    display: flex;
+    width: calc(100% - 3rem);
+    min-height: 350px;
+    background-color: var(--main);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .emotion-module, .recommendation-module {
+    flex: 1;
+    padding: 1.5rem;
+    border: 2px solid var(--font-primary);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .emotion-module {
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .module-title {
+    color: var(--font-primary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .emotion-image-container {
+    width: 120px;
+    height: 120px;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .emotion-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .detected-emotion {
+    color: var(--detail2);
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .recommendation-module {
+    justify-content: flex-start;
+  }
+  
+  .recommendation-text {
+    color: var(--font-primary);
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .song-card-container {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

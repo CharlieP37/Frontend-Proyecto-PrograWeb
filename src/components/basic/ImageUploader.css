@@ -1,0 +1,111 @@
+.image-uploader-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: var(--main);
+    border-radius: 8px;
+  }
+  
+  .upload-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .dropzone {
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .dashed-border {
+    border: 2px dashed var(--detail2);
+    border-radius: 4px;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .dropzone.dragging .dashed-border {
+    border-color: var(--detail1);
+    background-color: var(--detail3);
+  }
+  
+  .upload-title {
+    color: var(--font-primary);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .dropzone p {
+    color: var(--font-primary);
+    margin: 0;
+  }
+  
+  .dropzone span {
+    color: var(--font-primary);
+  }
+  
+  .image-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .image-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 4px;
+    border: 1px solid var(--detail2);
+  }
+  
+  .image-preview p {
+    color: var(--font-primary);
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .select-button, .submit-button {
+    width: 48%;
+  }
+  
+  .select-button {
+    background-color: transparent;
+    color: var(--font-primary);
+    border: 1px solid var(--detail2);
+  }
+  
+  .select-button:hover {
+    background-color: var(--detail3) !important;
+  }
+  
+  .submit-button {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    border: 1px solid var(--detail2);
+  }
+  
+  .submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }

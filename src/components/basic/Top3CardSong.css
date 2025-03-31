@@ -1,0 +1,20 @@
+.top3-container {
+    border: 2px solid var(--font-primary);
+    border-radius: 50px;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: var(--main);
+}
+
+.top3-title {
+    color: var(--font-primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.songs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

@@ -4,13 +4,10 @@ import LeftMenuComponent from "../components/full/leftmenu.js"
 import RightMenuComponent from "../components/full/rightmenu.js"
 import ActionBarComponent from "../components/basic/actionbar.js";
 import "./homescreen.css";
-
-/* Componentes dummy de prueba */
-const Inicio = () => <div className="right-content" style={{justifySelf:"center", justifyItems:"center", width:"100%", height:"100%"}}><p>Componente Inicio</p></div>;
-const Historial = () => <div className="right-content" style={{justifySelf:"center", justifyItems:"center", width:"100%", height:"100%"}}><p>Componente Historial</p></div>;
-const AnalizarEmocion = () => <div className="right-content" style={{justifySelf:"center", justifyItems:"center", width:"100%", height:"100%"}}><p>Componente Analizar Emoción</p></div>;
-const Estadisticas = () => <div className="right-content" style={{justifySelf:"center", justifyItems:"center", width:"100%", height:"100%"}}><p>Componente Estadísticas</p></div>;
-/* --- Eliminar al implementar componentes finales */
+import SectionHome from "../components/full/SectionHome.js";
+import CallHistory from "../components/full/CallHistory.js";
+import CallAnalyticsOptions from "../components/full/CallAnalyticsOptions.js";
+import CallStatistics from "../components/full/CallStatistics.js";
 
 function HomeScreen(){
 
@@ -19,15 +16,15 @@ function HomeScreen(){
     const renderRightMenuComponent = () => {
         switch (activeComponent) {
             case 1:
-                return <Inicio />; /* Reemplazar por componente para módulo de Inicio */
+                return <SectionHome/>
             case 2:
-                return <Historial />; /* Reemplazar por componente para módulo de Historial */
+                return <CallHistory/>
             case 3:
-                return <AnalizarEmocion />; /* Reemplazar por componente para módulo de Analizar Emoción */
+                return <CallAnalyticsOptions/>
             case 4:
-                return <Estadisticas />; /* Reemplazar por componente para módulo de Estadísticas */
+                return <CallStatistics/>
             default:
-                return <Inicio />; /* Reemplazar por componente para módulo de Inicio */
+                return <SectionHome/>
         }
     };
 
