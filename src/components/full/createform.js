@@ -74,7 +74,7 @@ function CreateForm(){
                             <br/>
                             <FloatLabel id="calendarFloatLabel">
                                 <div className="calendar-button-container custom-container">
-                                    <Calendar className="custom-calendar" panelClassName="custom-datetimepicker-panel" /* nextIcon={"pi pi-arrow-left"} */ ref={calendarRef} inputId="birthDate" value={date} onChange={(e) => setDate(e.value)} onFocus={preventInputInteraction} onInput={preventInputInteraction} disabledDays={null} dateTemplate={dateTemplate} showButtonBar locale="es"/>
+                                    <Calendar className="custom-calendar" panelClassName="custom-datetimepicker-panel" ref={calendarRef} inputId="birthDate" value={date} onChange={(e) => setDate(e.value)} onFocus={preventInputInteraction} onInput={preventInputInteraction} disabledDays={null} dateTemplate={dateTemplate} showButtonBar locale="es"/>
                                     <Button onClick={openCalendar} id="calendarBtn">
                                         <img id="calendarIcon" alt="logo" src={calendarIcon}></img>
                                     </Button>
