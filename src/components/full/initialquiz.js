@@ -6,7 +6,8 @@ import "./initialquiz.css";
 
 function InitialQuiz(){
 
-    const [dialogVisible, setDialogVisible] = useState(true);
+    const [dialogVisible1, setDialogVisible1] = useState(true);
+    const [dialogVisible2, setDialogVisible2] = useState(false);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedAnswers, setSelectedAnswers] = useState({});
     
@@ -24,7 +25,8 @@ function InitialQuiz(){
     
     const handleNextClick = () => {
 
-        setDialogVisible(false);
+        setDialogVisible1(false);
+        setDialogVisible2(true);
 
     };
 
@@ -34,6 +36,7 @@ function InitialQuiz(){
         } else {
             console.log("End of quiz");
             console.log("Selected Answers:", selectedAnswers);
+            setDialogVisible2(false);
         }
     };
 
@@ -48,8 +51,8 @@ function InitialQuiz(){
         <div className="quiz-dialog-container">
             <DialogDefault
                 id={"initialwelcome"}
-                visible={dialogVisible}
-                onHide={() => setDialogVisible(false)}
+                visible={dialogVisible1}
+                onHide={() => setDialogVisible1(false)}
                 children={
                     <div className="quiz-content-container">
                         <h2 className="title2" id="welcomeTitleH2">¡Bienvenido a Moodify! Queremos conocer tus gustos para hacer que la música se adapte a ti.</h2>
@@ -59,8 +62,8 @@ function InitialQuiz(){
             />
             <DialogDefault
                 id={"initialquiz"}
-                visible={!dialogVisible}
-                onHide={() => setDialogVisible(false)}
+                visible={dialogVisible2}
+                onHide={() => setDialogVisible2(false)}
                 children={
                     <div className="quiz-content-container">
                         <div className="quiz-title-container">

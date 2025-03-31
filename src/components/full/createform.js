@@ -46,7 +46,7 @@ function CreateForm({ visible, onHide }){
         setTimeout(() => {
             alert("Cuenta creada correctamente (simulado)");
             onHide();
-            navigate("/home");
+            navigate("/home", { state: { showSurveyDialog: true } });
         }, 1000);
     };
 
@@ -59,7 +59,7 @@ function CreateForm({ visible, onHide }){
 
     const preventInputInteraction = (e) => {
         calendarRef.current.hide();
-    } 
+    }
 
     const dateTemplate = (date) => {
         if (date < date.today) {

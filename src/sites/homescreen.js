@@ -1,16 +1,20 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import NavBarComponent from "../components/basic/navbar.js";
 import LeftMenuComponent from "../components/full/leftmenu.js"
 import RightMenuComponent from "../components/full/rightmenu.js"
 import ActionBarComponent from "../components/basic/actionbar.js";
-import "./homescreen.css";
 import SectionHome from "../components/full/SectionHome.js";
 import CallHistory from "../components/full/CallHistory.js";
 import CallAnalyticsOptions from "../components/full/CallAnalyticsOptions.js";
 import CallStatistics from "../components/full/CallStatistics.js";
+import InitialQuiz from "../components/full/initialquiz.js";
+import "./homescreen.css";
 
 function HomeScreen(){
 
+    const location = useLocation();
+    const [showSurveyDialog, setShowSurveyDialog] = useState(location.state?.showSurveyDialog || false);
     const [activeComponent, setActiveComponent] = useState(1);
 
     const renderRightMenuComponent = () => {
@@ -28,8 +32,13 @@ function HomeScreen(){
         }
     };
 
+    const handleCloseSurvey = () => {
+        setShowSurveyDialog(false);
+    };
+
     return (
         <div className="main-homescreen-container">
+            {showSurveyDialog && <InitialQuiz onClose={handleCloseSurvey} />}
             <div className="navbar-location-container">
                 <NavBarComponent/>
             </div>
