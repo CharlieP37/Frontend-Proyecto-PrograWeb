@@ -1,12 +1,54 @@
 @import "primereact/resources/themes/lara-light-cyan/theme.css";
 @import "primeicons/primeicons.css";
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Shrikhand&display=swap'); */
 
 :root {
     --background: #183D3D;
     --main: #040D12;
     --font-primary: #E7DFC6;
-    --detail1: #5C8374;
+    --detail1: #3F4E4F;
     --detail2: #93B1A6;
     --detail3: #F1E9DB;
+    --detail4: #5C8374;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    background-color: var(--background);
+    color: var(--font-primary);
+}
+
+.titles-font-style {
+    font-family: "Shrikhand", serif;
+    text-align: center;
+    font-size: 32px;
+}
+
+.subtitle-font-style {
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.paragraph-longtext-font-style {
+    font-family: "Quicksand", sans-serif;
+    text-align: justify;
+}
+
+.button-action-font-style {
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+.shorttext-secondary-font-style {
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
 }
