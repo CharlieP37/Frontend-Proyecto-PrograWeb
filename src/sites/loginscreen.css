@@ -1,0 +1,51 @@
+/* General Style */
+
+.main-login-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0px;
+}
+
+.content-container {
+    display: flex;
+    flex: 1;
+    margin: 20px;
+}
+
+.left-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+    margin-right: 10px;
+}
+
+.right-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 60px;
+    margin-left: 10px;
+}
+
+.login-options-container {
+    display: flex;
+    flex: 0 0 45%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    width: 70%;
+}
+
+.subtitle-font-style {
+    width: 70%;
+}
+
+#mainLogo {
+    max-width: 120%;
+    height: auto;
+}
