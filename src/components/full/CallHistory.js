@@ -75,9 +75,7 @@ const CallHistory = ({children}) => {
 
     return (
         <div className="main-right-menu-container">
-            <div className="right-menu-content-container">
-                {children}
-                <SongCardHistory
+            <SongCardHistory
                     songName="Song 1"
                     artist="Artist 1"
                     date="01/01/2024"
@@ -105,7 +103,6 @@ const CallHistory = ({children}) => {
                     songImage={songImage4Base64}
                     emotionImage={emotionImage4Base64}
                 />
-            </div>
         </div>
     );
 };
