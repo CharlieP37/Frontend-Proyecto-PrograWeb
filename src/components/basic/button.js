@@ -6,7 +6,7 @@ function CustomButton({ type, atributes, ...rest}){
 
     return(
         <div className="button-container" style={{ backgroundColor: isHovered ? "var(--font-primary)" : "var(--detail1)" }} id={atributes.name + "Container"}>
-            <button className ="custom-button" type={type} id={atributes.name} value={atributes.value} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} {...rest}>{atributes.text}</button>
+            <button className ="custom-button button-action-font-style" type={type} id={atributes.name} value={atributes.value} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} {...rest}>{atributes.text}</button>
         </div>
     );
 
