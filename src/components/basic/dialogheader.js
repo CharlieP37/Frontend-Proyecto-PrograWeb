@@ -3,8 +3,15 @@ import { Dialog } from 'primereact/dialog';
 import "./dialog.css";
 
 function DialogHeader({ id, visible, onHide, headerContent, className, children, ...rest }) {
+    
+    let classname = "";
 
-    const classname = className + " custom-dialog dialog-header";
+    if (className === undefined || className === null){
+        classname = " custom-dialog dialog-header";
+    }
+    else {
+        classname = className + " custom-dialog dialog-header";
+    }
 
     return (
         <div className="card dialog-container">

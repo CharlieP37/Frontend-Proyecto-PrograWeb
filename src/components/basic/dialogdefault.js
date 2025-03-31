@@ -4,7 +4,14 @@ import "./dialog.css";
 
 function DialogDefault({ id, visible, onHide, children, className, ...rest }) {
 
-    const classname = className + " custom-dialog dialog-default";
+    let classname = "";
+
+    if (className === undefined || className === null){
+        classname = " custom-dialog dialog-default";
+    }
+    else {
+        classname = className + " custom-dialog dialog-default";
+    }
     
     return (
         <div className="card dialog-container">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DialogFull from "../basic/dialogdefault";
+import DialogFull from "../basic/dialogheaderfooter";
 import { CameraCaptureDialog } from "../basic/CameraCapture";
 import ResultRecommendation from "../basic/ResultRecommendation";
 import SelectMethodPhoto from "./SelectMethodPhoto";
@@ -51,43 +51,41 @@ const CallAnalyticsOptions = ({ children }) => {
                 visible={dialogVisible}
                 onHide={() => setDialogVisible(false)}
                 headerContent="Tomar Foto"
-                footerContent={null}
-            >
-                <CameraCaptureDialog
+                footerContent={<br/>}
+                children={
+                  <CameraCaptureDialog
                     visible={dialogVisible}
                     onHide={() => setDialogVisible(false)}
                     onSave={handleSavePhoto}
                 />
-            </DialogFull>
-
+                }
+            />
             <DialogFull
-                id="uploadPhotoDialog"
+                id="uploadPhoto"
                 visible={uploadDialogVisible}
                 onHide={() => setUploadDialogVisible(false)}
                 headerContent="Subir Foto"
-                footerContent={null}
-            >
-                <ImageUploader onSubmit={handleUploadSubmit} />
-            </DialogFull>
-
+                footerContent={<br/>}
+                children={<ImageUploader onSubmit={handleUploadSubmit} />}
+            />
             {showResult && (
                 <DialogFull
                     id="resultDialog"
                     visible={showResult}
                     onHide={handleCloseResult}
                     headerContent="Resultado de la Recomendación"
-                    footerContent={null}
-                >
-                    <ResultRecommendation
+                    footerContent={<br/>}
+                    children={
+                      <ResultRecommendation
                         emotionName="Feliz"
                         artistName="Linkin Park"
                         songName="The Emptiness Machine"
                         onClose={handleCloseResult}
                     />
+                    }
+                >
                 </DialogFull>
             )}
-
-            {children}
         </div>
     </div>
   );

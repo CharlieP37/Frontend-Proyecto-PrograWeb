@@ -4,7 +4,14 @@ import "./dialog.css";
 
 function DialogFull({ id, visible, onHide, headerContent, footerContent, className, children, ...rest }) {
 
-    const classname = className + " custom-dialog dialog-full";
+    let classname = "";
+
+    if (className === undefined || className === null){
+        classname = " custom-dialog dialog-full";
+    }
+    else {
+        classname = className + " custom-dialog dialog-full";
+    }
 
     return (
         <div className="card dialog-container">
