@@ -1,0 +1,30 @@
+/* General Style */
+
+.input-container {
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--detail1);
+    border-radius: 60px;
+    padding: 5px;
+    width: calc(100% - 0px);
+    box-sizing: border-box;
+}
+
+/* Input Style */
+
+.custom-input {
+    background-color: var(--detail1);
+    color: var(--font-primary);
+    text-align: center;
+    border: 1px solid var(--font-primary) !important;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+    padding: 12px;
+    width: 100%;
+}
+
+.custom-input:focus {
+    outline: none;
+}
