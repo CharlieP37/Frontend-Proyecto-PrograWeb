@@ -1,0 +1,53 @@
+/* General Style */
+
+.quiz-dialog-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.quiz-content-container {
+    padding: 0px;
+}
+
+/* First Dialog */
+
+#welcomeBtnContainer {
+    justify-self: center;
+    width: 50%;
+}
+
+/* Second Dialog */
+
+.quiz-title-container {
+    background-color: var(--detail1);
+    padding: 40px 60px;
+    margin: 10px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--font-primary);
+}
+
+.quiz-options-container {
+    margin-top: 60px;
+}
+
+#questionsquizContainer {
+    justify-self: center;
+    width: 65%;
+}
+
+#quiznextBtnContainer {
+    justify-self: center;
+    width: 40%;
+    margin-top: 50px;
+}
+
+/* DropDown Style */
+
+#questionsquizDropdown .p-inputtext {
+    padding: 0.75rem 0.75rem;
+    text-align: left;
+}
