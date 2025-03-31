@@ -1,8 +1,8 @@
 import React from 'react';
 import './ResultRecommendation.css';
 import SongCard from './SongCard';
-import imagenCancion from '../../assets/logo.svg'; 
-import imagenEmocion from '../../assets/logo.svg'; 
+import imagenCancion from '../../assets/LinkingrkP.svg'; 
+import imagenEmocion from '../../assets/Feliz.svg'; 
 
 const ResultRecommendation = ({ 
   emotionName = "Feliz",
