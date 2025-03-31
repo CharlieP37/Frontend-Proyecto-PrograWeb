@@ -1,0 +1,88 @@
+.moodify-dashboard {
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.moodify-dashboard-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.moodify-dashboard-title {
+    color: var(--font-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.moodify-dashboard-subtitle {
+    color: var(--detail2);
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.moodify-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+.moodify-chart-card {
+    background-color: var(--main);
+    border: 1px solid var(--detail1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.moodify-chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    border-color: var(--detail4);
+}
+
+.moodify-chart-title {
+    color: var(--font-primary);
+    margin-bottom: 1.2rem;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.moodify-chart-wrapper {
+    position: relative;
+    height: 320px;
+    width: 100%;
+    min-height: 200px;
+}
+
+@media (max-width: 768px) {
+    .moodify-charts-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    
+    .moodify-chart-wrapper {
+        height: 180px;
+    }
+    
+    .moodify-dashboard-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .moodify-dashboard {
+        padding: 1rem 0.5rem;
+    }
+    
+    .moodify-chart-card {
+        padding: 1rem;
+    }
+}
+
+

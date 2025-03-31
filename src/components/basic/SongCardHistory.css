@@ -46,6 +46,7 @@
     flex-shrink: 0;
     border: 2px solid var(--detail3);
     margin-right: 15px;
+    flex: 0 0 auto;
 }
 
 .song-history-image {
@@ -72,10 +73,11 @@
 .song-history-emotion-container {
     width: 60px;
     height: 60px;
-    border-radius: 6px; 
+    border-radius: 6px;
     overflow: hidden;
     flex-shrink: 0;
     margin-left: 40px;
+    flex: 0 0 auto;
 }
 
 .song-history-emotion-image {
@@ -99,7 +101,9 @@
     flex-direction: column;
     justify-content: center;
     min-width: 160px;
+    max-width: 200px;
     margin: 0 30px;
+    overflow: hidden;
 }
 
 .song-history-artist {
@@ -111,6 +115,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    position: relative;
+    width: 100%;
 }
 
 .song-history-title {
@@ -121,12 +127,37 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    position: relative;
+    width: 100%;
+}
+
+.song-history-text-info:hover .song-history-artist,
+.song-history-text-info:hover .song-history-title {
+    overflow: visible;
+    text-overflow: unset;
+    animation: scrollText 8s linear infinite;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(0);
+    }
+    80% {
+        transform: translateX(calc(100% - 200px));
+    }
+    100% {
+        transform: translateX(calc(100% - 200px));
+    }
 }
 
 .song-history-actions {
     display: flex;
     gap: 12px;
-    margin: 0 20px; 
+    margin: 0 20px;
+    flex: 0 0 auto;
 }
 
 .song-history-like-button, 
@@ -167,6 +198,7 @@
     min-width: 90px;
     text-align: center;
     margin-left: 15px;
+    flex: 0 0 auto;
 }
 
 .song-history-date {

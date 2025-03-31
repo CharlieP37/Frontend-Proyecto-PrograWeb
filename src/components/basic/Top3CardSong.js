@@ -17,7 +17,7 @@ const Top3CardSong = () => {
             emotionImageUrl: imagenEmocion1
         },
         {
-            artist: "Imagin Dragons",
+            artist: "Imagine Dragons",
             title: "Woke-Demo",
             songImageUrl: imagenCancion2,
             emotionImageUrl: imagenEmocion2

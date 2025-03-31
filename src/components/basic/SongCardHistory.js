@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Button } from 'primereact/button';
+import { Tooltip } from 'primereact/tooltip';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import './SongCardHistory.css';
-
 
 const SongCardHistory = ({ 
   songName = "Linking Park", 
@@ -56,9 +56,25 @@ const SongCardHistory = ({
         </div>
 
         <div className="song-history-text-info">
-          <p className="song-history-artist">{artist}</p>
-          <h3 className="song-history-title">{songName}</h3>
+          <Tooltip target=".song-history-artist" />
+          <Tooltip target=".song-history-title" />
+          
+          <p 
+            className="song-history-artist"
+            data-pr-tooltip={artist}
+            data-pr-position="top"
+          >
+            {artist}
+          </p>
+          <h3 
+            className="song-history-title"
+            data-pr-tooltip={songName}
+            data-pr-position="top"
+          >
+            {songName}
+          </h3>
         </div>
+
         <div className="song-history-emotion-container">
           {emotionImageBase64 ? (
             <img 
