@@ -33,6 +33,7 @@
     border-radius: 30px;
     background: transparent;
     border: 4px solid var(--font-primary);
+    color: var(--font-primary);
 }
 
 .p-dialog .p-dialog-header {
@@ -60,6 +61,7 @@
 }
 
 .dialog-full .p-dialog-footer {
+    color: var(--font-primary);
     border-radius: 30px;
     background: transparent;
     border: 4px solid var(--font-primary);

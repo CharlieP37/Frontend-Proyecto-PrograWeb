@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, Children } from 'react';
 import { Button } from 'primereact/button';
-import { Dialog } from 'primereact/dialog';
+import CustomDialogFull from "./dialogheaderfooter";
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import './CameraCapture.css';
@@ -127,65 +127,60 @@ export function CameraCaptureDialog({ visible, onHide, onSave }) {
         )
       );
     }
-    return null;
+    return (<div></div>);
   };
 
-  return React.createElement(
-    Dialog,
-    {
-      header: "Tomar Fotografía",
-      visible: visible,
-      style: { width: '90vw', maxWidth: '500px' },
-      onHide: onHide,
-      footer: renderFooter(),
-      className: "camera-dialog"
-    },
-    error ? (
-      React.createElement(
-        'div',
-        { className: 'error-message' },
-        React.createElement('i', { className: 'pi pi-exclamation-triangle' }),
-        React.createElement('p', null, error),
+  return (
+    <CustomDialogFull id={"CapturePicture"} headerContent={"Tomar Fotografía"} visible={visible} style={{ width: '90vw', maxWidth: '500px' }} onHide={onHide} footerContent={renderFooter()} className={"camera-dialog"}
+    children={
+      error ? (
         React.createElement(
-          Button,
-          {
-            label: "Intentar de nuevo",
-            onClick: startCamera,
-            className: "retry-button"
-          }
+          'div',
+          { className: 'error-message' },
+          React.createElement('i', { className: 'pi pi-exclamation-triangle' }),
+          React.createElement('p', null, error),
+          React.createElement(
+            Button,
+            {
+              label: "Intentar de nuevo",
+              onClick: startCamera,
+              className: "retry-button"
+            }
+          )
+        )
+      ) : capturedImage ? (
+        React.createElement(
+          'div',
+          { className: 'photo-preview' },
+          React.createElement('img', { 
+            src: URL.createObjectURL(capturedImage),
+            alt: "Captura",
+            className: "captured-image"
+          })
+        )
+      ) : (
+        React.createElement(
+          'div',
+          { className: 'camera-view' },
+          React.createElement('video', {
+            ref: videoRef,
+            autoPlay: true,
+            playsInline: true,
+            muted: true,
+            className: "camera-feed"
+          }),
+          isCapturing && React.createElement(
+            Button,
+            {
+              label: "Capturar",
+              icon: "pi pi-camera",
+              onClick: captureImage,
+              className: "capture-button"
+            }
+          )
         )
       )
-    ) : capturedImage ? (
-      React.createElement(
-        'div',
-        { className: 'photo-preview' },
-        React.createElement('img', { 
-          src: URL.createObjectURL(capturedImage),
-          alt: "Captura",
-          className: "captured-image"
-        })
-      )
-    ) : (
-      React.createElement(
-        'div',
-        { className: 'camera-view' },
-        React.createElement('video', {
-          ref: videoRef,
-          autoPlay: true,
-          playsInline: true,
-          muted: true,
-          className: "camera-feed"
-        }),
-        isCapturing && React.createElement(
-          Button,
-          {
-            label: "Capturar",
-            icon: "pi pi-camera",
-            onClick: captureImage,
-            className: "capture-button"
-          }
-        )
-      )
-    )
+    }
+    />
   );
 }

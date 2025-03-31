@@ -2,11 +2,13 @@ import React from "react";
 import { Dialog } from 'primereact/dialog';
 import "./dialog.css";
 
-function DialogDefault({ id, visible, onHide, children, ...rest }) {
+function DialogDefault({ id, visible, onHide, children, className, ...rest }) {
+
+    const classname = className + " custom-dialog dialog-default";
     
     return (
         <div className="card dialog-container">
-            <Dialog id={ id + "DialogDefault" } className="custom-dialog dialog-default"
+            <Dialog id={ id + "DialogDefault" } className={classname}
                 visible={visible}
                 modal
                 content={( ) => (
@@ -21,6 +23,7 @@ function DialogDefault({ id, visible, onHide, children, ...rest }) {
             </Dialog>
         </div>
     );
+
 }
 
 export default DialogDefault;
