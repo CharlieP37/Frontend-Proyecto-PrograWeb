@@ -50,7 +50,8 @@ function CreateForm({ visible, onHide }){
         }, 1000);
     };
 
-    const openCalendar = () => {
+    const openCalendar = (e) => {
+        e.preventDefault();
         if (calendarRef.current) {
             calendarRef.current.show();
         }
