@@ -1,0 +1,15 @@
+/* General Style */
+
+.actionbar-container {
+    background-color: var(--main);
+    border-radius: 60px;
+    padding: 5px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.actionbar-inner-container {
+    border: 1px solid var(--font-primary);
+    border-radius: 60px;
+    width: 100%;
+}
