@@ -1,0 +1,113 @@
+/* General Style */
+
+.dropdown-container {
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--detail1);
+    border-radius: 60px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.custom-dropdown {
+    background: var(--detail1);
+    border: 1px solid var(--font-primary);
+    color: var(--font-primary);
+    transition: none;
+    border-radius: 60px;
+    width: 100%;
+}
+
+/* Aspect */
+
+.custom-dropdown:not(.p-disabled).p-focus {
+    outline: none;
+    outline-offset: none;
+    box-shadow: none;
+    border-color: unset;
+}
+
+.custom-dropdown:hover {
+    border-color: var(--font-primary);
+}
+
+/* Trigger Area */
+
+.p-dropdown .p-dropdown-trigger {
+    background: transparent;
+    color: var(--font-primary);
+    width: 3rem;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* Icon */
+
+.p-icon {
+    display: inline-block;
+}
+
+.custom-pi {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+/* Text Input */
+
+.custom-dropdown .p-inputtext {
+    color: var(--font-primary);
+}
+
+/* DropDown Panel and Items */
+
+.custom-dropdown-panel {
+    background: var(--detail1);
+    color: var(--font-primary);
+    margin-top: 10px;
+    border: 0 none;
+    border-radius: 10px;
+    
+}
+
+.custom-dropdown-panel .p-dropdown-items {
+    padding: 0.75rem 5px;
+}
+
+.custom-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    color: var(--font-primary);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0.75rem 1.25rem;
+    border: var(--font-primary) solid;
+    border-radius: 60px;
+    background: transparent;
+    transition: box-shadow 0.2s;
+    justify-content: center;
+}
+
+.custom-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+    color: var(--detail1);
+    background: var(--font-primary);
+    border: var(--font-primary) solid;
+    outline: var(--detail1) solid;
+    outline-offset: -5px;
+}
+
+.custom-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    color: var(--detail1);
+    background: var(--detail2);
+    border: var(--font-primary) solid;
+    outline: var(--detail1) solid;
+    outline-offset: -5px;
+}
+
+.custom-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+    background: var(--detail3);
+}
+
+.custom-dropdown-panel .p-dropdown-items-wrapper {
+    overflow: auto;
+    scrollbar-color: var(--detail3) var(--detail1);
+}
