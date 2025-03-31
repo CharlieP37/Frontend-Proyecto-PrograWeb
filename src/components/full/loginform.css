@@ -1,0 +1,53 @@
+/* General Style */
+
+.login-container {
+    display: flexbox;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: none;
+    margin:  20px 60px 40px;
+    padding: 0px;
+}
+
+.credentials-container {
+    margin-bottom: 40px;
+}
+
+.credentials-container h1 {
+    margin-left: 20px;
+}
+
+#usernameloginContainer {
+    margin-bottom: 50px;
+}
+
+.enterlogin-btn-container {
+    justify-self: center;
+    width: 60%;
+}
+
+/* FLoat Label Style */
+
+#usernameloginLabel,
+#passwordloginLabel {
+    color: var(--font-primary);
+}
+
+.p-float-label > #usernameloginLabel,
+.p-float-label > #passwordloginLabel
+{
+    left: 0.75rem;
+    transition-duration: 0.2s;
+}
+
+.p-float-label:has(input:focus) #usernameloginLabel, .p-float-label:has(input.p-filled) #usernameloginLabel, .p-float-label:has(input:-webkit-autofill) #usernameloginLabel, .p-float-label:has(textarea:focus) #usernameloginLabel, .p-float-label:has(textarea.p-filled) #usernameloginLabel, .p-float-label:has(.p-inputwrapper-focus) #usernameloginLabel, .p-float-label:has(.p-inputwrapper-filled) #usernameloginLabel
+{
+    left: 6.5rem;
+    font-size: 12px;
+}
+
+.p-float-label:has(input:focus) #passwordloginLabel, .p-float-label:has(input.p-filled) #passwordloginLabel, .p-float-label:has(input:-webkit-autofill) #passwordloginLabel, .p-float-label:has(textarea:focus) #passwordloginLabel, .p-float-label:has(textarea.p-filled) #passwordloginLabel, .p-float-label:has(.p-inputwrapper-focus) #passwordloginLabel, .p-float-label:has(.p-inputwrapper-filled) #passwordloginLabel {
+    left: 5.75rem;
+    font-size: 12px;
+}
