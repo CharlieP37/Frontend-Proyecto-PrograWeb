@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import DialogWithHeader from "../basic/dialogheader";
 import CustomInput from "../basic/input";
 import CustomButton from "../basic/button";
+import { login } from "../../services/api";
 import "./loginform.css";
 
 function LoginForm({ visible, onHide }){
 
     const navigate = useNavigate();
+    const [error, setError] = useState('');
     const [formData, setFormData] = useState({
         usernamelogin: "",
         passwordlogin: ""
@@ -21,16 +23,25 @@ function LoginForm({ visible, onHide }){
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Datos enviados al backend:", formData);
 
-        // Simulación de envío al backend
-        setTimeout(() => {
-            alert("Datos validados (simulado)");
+        if (!formData.usernamelogin || !formData.passwordlogin) {
+            alert("Error! Ingrese información de inicio de sesión.");
+            return;
+        };
+
+        try {
+            const credentials = ({ user: formData.usernamelogin, password: formData.passwordlogin });
+            const responseData = await login(credentials);
+            localStorage.setItem("token", responseData.token);
+            alert("Inicio de sesión exitoso!");
             onHide();
             navigate("/home");
-        }, 1000);
+        }
+        catch (e) {
+            setError(e.message);
+        };
     };
 
     return (

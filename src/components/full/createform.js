@@ -8,12 +8,14 @@ import CustomInput from "../basic/input";
 import DialogWithHeader from "../basic/dialogheader";
 import CustomButton from "../basic/button";
 import calendarIcon from '../../assets/calendar-icon.svg';
+import { register } from "../../services/api";
 import "./createform.css";
 
 function CreateForm({ visible, onHide }){
     
     const calendarRef = useRef(null);
     const navigate = useNavigate();
+    const [error, setError] = useState('');
 
     const [formData, setFormData] = useState({
         username: "",
@@ -38,16 +40,26 @@ function CreateForm({ visible, onHide }){
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Datos enviados al backend:", formData);
 
-        // Simulación de envío al backend
-        setTimeout(() => {
-            alert("Cuenta creada correctamente (simulado)");
+        if (!formData.username || !formData.email || !formData.password || !formData.passwordconfirm || !formData.birthDate) {
+            alert("Error! Debe llenar correctamente todos los campos");
+            return;
+        };
+
+        try {
+            const credentials = ({ user: formData.username, email: formData.email, password: formData.password, birthday: formData.birthDate });
+            const responseData = await register(credentials);
+            localStorage.setItem("token", responseData.token);
+            alert("Usuario creado éxitosamente!");
             onHide();
             navigate("/home", { state: { showSurveyDialog: true } });
-        }, 1000);
+        }
+        catch (e) {
+            setError(e.message);
+        };
+
     };
 
     const openCalendar = (e) => {

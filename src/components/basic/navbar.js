@@ -9,6 +9,9 @@ function NavBar(){
     const navigate = useNavigate();
 
     const handleSignOut = () => {
+        if (localStorage.getItem('token')) {
+            localStorage.removeItem('token');
+        }
         alert("Cerrando Sesión");
         navigate("/");
     };
