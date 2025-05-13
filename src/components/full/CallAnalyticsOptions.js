@@ -12,7 +12,9 @@ const CallAnalyticsOptions = ({ children }) => {
   const [uploadDialogVisible, setUploadDialogVisible] = useState(false); 
   const [capturedImage, setCapturedImage] = useState(null);
   const [detectedEmotion, setDetectedEmotion] = useState(null);
+  const [SongRecommendtion, setSongRecommendtion] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleCloseResult = () => {
     setShowResult(false);
@@ -28,11 +30,13 @@ const CallAnalyticsOptions = ({ children }) => {
 
   const handleSavePhoto = async (image) => {
     setCapturedImage(image);
+    setLoading(true);
     try {
       const responseData = await emotion(image);
       if (responseData.response && responseData.response.length > 0) {
         const topEmotion = responseData.response[0].Type;
         setDetectedEmotion(topEmotion);
+        await handleMusicRecommendation(topEmotion);
         setDialogVisible(false);
         setShowResult(true);
       }
@@ -42,16 +46,20 @@ const CallAnalyticsOptions = ({ children }) => {
       }
     } catch (error) {
       console.error("Error al enviar imagen tomada: ", error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleUploadSubmit = async (image) => {
     setCapturedImage(image);
+    setLoading(true);
     try {
       const responseData = await emotion(image);
       if (responseData.response && responseData.response.length > 0) {
         const topEmotion = responseData.response[0].Type;
         setDetectedEmotion(topEmotion);
+        await handleMusicRecommendation(topEmotion);
         setUploadDialogVisible(false);
         setShowResult(true);
       }
@@ -60,8 +68,20 @@ const CallAnalyticsOptions = ({ children }) => {
       }
     } catch (error) {
       console.error("Error al enviar imagen cargada: ", error.message);
+    } finally {
+      setLoading(false);
     }
   };
+
+  const handleMusicRecommendation = async (emotion) => {
+    try {
+      const emotionQuery = emotion + " song";
+      const responseData = await recommendations({ mood: emotionQuery });
+      setSongRecommendtion(responseData);
+    } catch (error) {
+      console.error("Error al obtener recomendación: ", error.message);
+    }
+  }
 
   return (
     <div className="AnalyticsBtnSection">
@@ -85,6 +105,11 @@ const CallAnalyticsOptions = ({ children }) => {
                 footerContent={<br/>}
                 children={<ImageUploader onSubmit={handleUploadSubmit} />}
             />
+            {loading && (
+              <div className="loading-overlay">
+                <p className="loading-text shorttext-secondary-font-style">Analizando emoción y buscando recomendación musical...</p>
+              </div>
+            )}
             {showResult && (
                 <DialogFull
                     id="resultDialog"
@@ -95,9 +120,10 @@ const CallAnalyticsOptions = ({ children }) => {
                     children={
                       <ResultRecommendation
                         emotionName={detectedEmotion}
-                        artistName="Artista"
-                        songName="Cancion"
-                        recomendationPhrase="A cena no le facena"
+                        artistName={SongRecommendtion.artist}
+                        songName={SongRecommendtion.name}
+                        songImage={SongRecommendtion.cover}
+                        recomendationPhrase="Esta es tu recomendación!"
                         onClose={handleCloseResult}
                     />
                     }
