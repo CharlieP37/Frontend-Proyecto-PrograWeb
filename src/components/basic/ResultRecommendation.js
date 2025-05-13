@@ -5,9 +5,10 @@ import imagenCancion from '../../assets/LinkingrkP.svg';
 import imagenEmocion from '../../assets/Feliz.svg'; 
 
 const ResultRecommendation = ({ 
-  emotionName = "Feliz",
-  artistName = "Linkin Park",
-  songName = "The Emptiness Machine",
+  emotionName,
+  artistName,
+  songName,
+  recomendationPhrase,
   onClose
 }) => {
   return (
@@ -26,7 +27,7 @@ const ResultRecommendation = ({
 
       <div className="recommendation-module">
         <p className="recommendation-text">
-          ¡Tu energía es contagiosa! Aquí tienes una canción para seguir disfrutando el momento.
+          {recomendationPhrase}
         </p>
         <div className="song-card-container">
           <SongCard 

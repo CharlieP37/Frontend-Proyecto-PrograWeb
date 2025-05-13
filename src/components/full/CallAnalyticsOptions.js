@@ -4,14 +4,20 @@ import { CameraCaptureDialog } from "../basic/CameraCapture";
 import ResultRecommendation from "../basic/ResultRecommendation";
 import SelectMethodPhoto from "./SelectMethodPhoto";
 import ImageUploader from "../basic/ImageUploader";
+import { emotion, recommendations } from "../../services/api";
 import "./CallAnalyticsOptions.css";
 
 const CallAnalyticsOptions = ({ children }) => {
   const [dialogVisible, setDialogVisible] = useState(false);
   const [uploadDialogVisible, setUploadDialogVisible] = useState(false); 
   const [capturedImage, setCapturedImage] = useState(null);
+  const [detectedEmotion, setDetectedEmotion] = useState(null);
   const [showResult, setShowResult] = useState(false);
 
+  const handleCloseResult = () => {
+    setShowResult(false);
+  };
+  
   const handleTakePhoto = () => {
     setDialogVisible(true);
   };
@@ -20,20 +26,41 @@ const CallAnalyticsOptions = ({ children }) => {
     setUploadDialogVisible(true);
   };
 
-  const handleSavePhoto = (image) => {
+  const handleSavePhoto = async (image) => {
     setCapturedImage(image);
-    setShowResult(true); 
-    setDialogVisible(false);
+    try {
+      const responseData = await emotion(image);
+      if (responseData.response && responseData.response.length > 0) {
+        const topEmotion = responseData.response[0].Type;
+        setDetectedEmotion(topEmotion);
+        setDialogVisible(false);
+        setShowResult(true);
+      }
+      else {
+        alert(responseData.message || "No se detectaron emociones.");
+        setDialogVisible(true);
+      }
+    } catch (error) {
+      console.error("Error al enviar imagen tomada: ", error.message);
+    }
   };
 
-  const handleCloseResult = () => {
-    setShowResult(false);
-  };
-
-  
-  const handleUploadSubmit = () => {
-    setUploadDialogVisible(false); 
-    setShowResult(true);
+  const handleUploadSubmit = async (image) => {
+    setCapturedImage(image);
+    try {
+      const responseData = await emotion(image);
+      if (responseData.response && responseData.response.length > 0) {
+        const topEmotion = responseData.response[0].Type;
+        setDetectedEmotion(topEmotion);
+        setUploadDialogVisible(false);
+        setShowResult(true);
+      }
+      else {
+        alert(responseData.message || "No se detectaron emociones.");
+      }
+    } catch (error) {
+      console.error("Error al enviar imagen cargada: ", error.message);
+    }
   };
 
   return (
@@ -45,20 +72,10 @@ const CallAnalyticsOptions = ({ children }) => {
                     onUploadPhoto={handleUploadPhoto} 
                 />
             </div>
-
-            <DialogFull
-                id="photoDialog"
+            <CameraCaptureDialog
                 visible={dialogVisible}
                 onHide={() => setDialogVisible(false)}
-                headerContent="Tomar Foto"
-                footerContent={<br/>}
-                children={
-                  <CameraCaptureDialog
-                    visible={dialogVisible}
-                    onHide={() => setDialogVisible(false)}
-                    onSave={handleSavePhoto}
-                />
-                }
+                onSave={handleSavePhoto}
             />
             <DialogFull
                 id="uploadPhoto"
@@ -77,9 +94,10 @@ const CallAnalyticsOptions = ({ children }) => {
                     footerContent={<br/>}
                     children={
                       <ResultRecommendation
-                        emotionName="Feliz"
-                        artistName="Linkin Park"
-                        songName="The Emptiness Machine"
+                        emotionName={detectedEmotion}
+                        artistName="Artista"
+                        songName="Cancion"
+                        recomendationPhrase="A cena no le facena"
                         onClose={handleCloseResult}
                     />
                     }

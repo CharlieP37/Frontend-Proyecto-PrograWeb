@@ -20,9 +20,12 @@ export const login = async (credentials) => {
     }
 };
 
-export const emotion = async (data) => {
+export const emotion = async (image) => {
     try {
-        const response = await axios.post(`${API_URL}/emotion/analyze`, data);
+        const formData = new FormData();
+        formData.append("file", image);
+        const headers = ({headers: { "Content-Type": "multipart/form-data" }});
+        const response = await axios.post(`${API_URL}/emotion/analyze`, formData, headers);
         return response.data;
     } catch (error) {
         throw new Error (`Error al analizar emoción: ${error.response.status}`);

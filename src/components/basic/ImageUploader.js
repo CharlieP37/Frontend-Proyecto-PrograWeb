@@ -36,7 +36,9 @@ const ImageUploader = ({ onSubmit }) => {
   };
 
   const handleSubmit = () => {
-    onSubmit(); 
+    if (image) {
+        onSubmit(image);
+      }
   };
 
   return (
