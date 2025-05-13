@@ -10,7 +10,6 @@ import "./CallAnalyticsOptions.css";
 const CallAnalyticsOptions = ({ children }) => {
   const [dialogVisible, setDialogVisible] = useState(false);
   const [uploadDialogVisible, setUploadDialogVisible] = useState(false); 
-  const [capturedImage, setCapturedImage] = useState(null);
   const [detectedEmotion, setDetectedEmotion] = useState(null);
   const [SongRecommendtion, setSongRecommendtion] = useState(null);
   const [showResult, setShowResult] = useState(false);
@@ -29,7 +28,6 @@ const CallAnalyticsOptions = ({ children }) => {
   };
 
   const handleSavePhoto = async (image) => {
-    setCapturedImage(image);
     setLoading(true);
     try {
       const responseData = await emotion(image);
@@ -52,7 +50,6 @@ const CallAnalyticsOptions = ({ children }) => {
   };
 
   const handleUploadSubmit = async (image) => {
-    setCapturedImage(image);
     setLoading(true);
     try {
       const responseData = await emotion(image);
