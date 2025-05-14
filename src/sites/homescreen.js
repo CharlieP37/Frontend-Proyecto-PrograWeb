@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
 import NavBarComponent from "../components/basic/navbar.js";
 import LeftMenuComponent from "../components/full/leftmenu.js"
 import RightMenuComponent from "../components/full/rightmenu.js"
@@ -13,8 +12,7 @@ import "./homescreen.css";
 
 function HomeScreen(){
 
-    const location = useLocation();
-    const [showSurveyDialog, setShowSurveyDialog] = useState(location.state?.showSurveyDialog || false);
+    const [showSurveyDialog, setShowSurveyDialog] = useState(() => { const saved = localStorage.getItem("showSurveyDialog"); return saved === "true"; });
     const [activeComponent, setActiveComponent] = useState(1);
 
     const renderRightMenuComponent = () => {

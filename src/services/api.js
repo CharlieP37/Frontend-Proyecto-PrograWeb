@@ -20,6 +20,24 @@ export const login = async (credentials) => {
     }
 };
 
+export const quizOptions = async (credentials) => {
+    try {
+        const response = await axios.get(`${API_URL}/quiz`);
+        return response.data;
+    } catch (error) {
+        throw new Error (`Error al obtener opciones para quiz: ${error.response.status}`);
+    }
+};
+
+export const saveQuiz = async (answers) => {
+    try {
+        const response = await axios.post(`${API_URL}/quiz`, answers);
+        return response.data;
+    } catch (error) {
+        throw new Error (`Error al guardar respuestas de quiz: ${error.response.status}`);
+    }
+};
+
 export const emotion = async (image) => {
     try {
         const formData = new FormData();

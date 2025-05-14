@@ -54,7 +54,8 @@ function CreateForm({ visible, onHide }){
             localStorage.setItem("token", responseData.token);
             alert("Usuario creado éxitosamente!");
             onHide();
-            navigate("/home", { state: { showSurveyDialog: true } });
+            localStorage.setItem("showSurveyDialog", "true");
+            navigate("/home");
         }
         catch (e) {
             setError(e.message);
