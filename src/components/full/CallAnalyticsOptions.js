@@ -104,6 +104,7 @@ const CallAnalyticsOptions = ({ children }) => {
             />
             {loading && (
               <div className="loading-overlay">
+                <div className="loading-spinner" />
                 <p className="loading-text shorttext-secondary-font-style">Analizando emoción y buscando recomendación musical...</p>
               </div>
             )}
