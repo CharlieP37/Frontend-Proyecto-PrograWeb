@@ -13,12 +13,113 @@
 
 /* First Dialog */
 
+#initialwelcomeDialogDefault {
+    /* max-width: 50%; */
+    min-width: 500px;
+    width: 750px;
+}
+
+#welcomeTitleH2 {
+    margin: 10px auto 50px;
+}
+
 #welcomeBtnContainer {
     justify-self: center;
     width: 50%;
 }
 
 /* Second Dialog */
+
+#profileformDialogDefault {
+    max-width: 1000px;
+    min-width: 615px;
+    width: 1000px;
+    min-height: 640px;
+}
+
+.profile-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.profile-title-container {
+    background-color: var(--detail1);
+    padding: 20px 60px;
+    margin: 10px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--font-primary);
+}
+
+.row-one-information,
+.row-two-information,
+.row-three-information {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: 40px 10px;
+    flex-grow: 1;
+}
+
+.row-btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+#profileSubmitBtnContainer {
+    width: 40%;
+}
+
+.quizcard {
+    flex-grow: 1;
+    max-width: 50%;
+}
+
+.middle-div{
+    margin: 0 10px;
+}
+
+#personnameLabel,
+#personlastnameLabel,
+#sexLabel,
+#countryLabel {
+    color: var(--font-primary);
+}
+
+.p-float-label > #personnameLabel,
+.p-float-label > #personlastnameLabel,
+.p-float-label > #sexLabel,
+.p-float-label > #countryLabel
+{
+    left: 0.75rem;
+    transition-duration: 0.2s;
+}
+
+.p-float-label:has(input:focus) #personnameLabel, .p-float-label:has(input.p-filled) #personnameLabel, .p-float-label:has(input:-webkit-autofill) #personnameLabel, .p-float-label:has(textarea:focus) #personnameLabel, .p-float-label:has(textarea.p-filled) #personnameLabel, .p-float-label:has(.p-inputwrapper-focus) #personnameLabel, .p-float-label:has(.p-inputwrapper-filled) #personnameLabel
+{
+    left: calc(40%);
+    font-size: 12px;
+}
+
+.p-float-label:has(input:focus) #personlastnameLabel, .p-float-label:has(input.p-filled) #personlastnameLabel, .p-float-label:has(input:-webkit-autofill) #personlastnameLabel, .p-float-label:has(textarea:focus) #personlastnameLabel, .p-float-label:has(textarea.p-filled) #personlastnameLabel, .p-float-label:has(.p-inputwrapper-focus) #personlastnameLabel, .p-float-label:has(.p-inputwrapper-filled) #personlastnameLabel {
+    left: calc(40%);
+    font-size: 12px;
+}
+
+.p-float-label:has(input:focus) #sexLabel, .p-float-label:has(input.p-filled) #sexLabel, .p-float-label:has(input:-webkit-autofill) #sexLabel, .p-float-label:has(textarea:focus) #sexLabel, .p-float-label:has(textarea.p-filled) #sexLabel, .p-float-label:has(.p-inputwrapper-focus) #sexLabel, .p-float-label:has(.p-inputwrapper-filled) #sexLabel {
+    left: calc(40%);
+    font-size: 12px;
+}
+
+.p-float-label:has(input:focus) #countryLabel, .p-float-label:has(input.p-filled) #countryLabel, .p-float-label:has(input:-webkit-autofill) #countryLabel, .p-float-label:has(textarea:focus) #countryLabel, .p-float-label:has(textarea.p-filled) #countryLabel, .p-float-label:has(.p-inputwrapper-focus) #countryLabel, .p-float-label:has(.p-inputwrapper-filled) #countryLabel {
+    left: calc(40%);
+    font-size: 12px;
+}
+
+/* Third Dialog */
 
 .quiz-title-container {
     background-color: var(--detail1);

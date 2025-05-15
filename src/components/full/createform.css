@@ -176,7 +176,7 @@ span > .p-button:hover{
 }
 
 .p-float-label:has(input:focus) #birthDateLabel, .p-float-label:has(input.p-filled) #birthDateLabel, .p-float-label:has(input:-webkit-autofill) #birthDateLabel, .p-float-label:has(textarea:focus) #birthDateLabel, .p-float-label:has(textarea.p-filled) #birthDateLabel, .p-float-label:has(.p-inputwrapper-focus) #birthDateLabel, .p-float-label:has(.p-inputwrapper-filled) #birthDateLabel {
-    left: 7.25rem;
+    left: calc(32%);
     font-size: 12px;
 }
 

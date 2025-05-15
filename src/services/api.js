@@ -20,6 +20,33 @@ export const login = async (credentials) => {
     }
 };
 
+export const meProfile = async (data) => {
+    try {
+        const response = await axios.get(`${API_URL}/user/me`, data);
+        return response.data;
+    } catch (error) {
+        throw new Error (`Error al obtener datos del usuario: ${error.response.status}`);
+    }
+};
+
+export const profileOptions = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/user/options`);
+        return response.data;
+    } catch (error) {
+        throw new Error (`Error la obtener las opciones de perfil: ${error.response.status}`);
+    }
+};
+
+export const profileSave = async (profile) => {
+    try {
+        const response = await axios.post(`${API_URL}/user/save`, profile);
+        return response.data;
+    } catch (error) {
+        throw new Error (`Error al guardar el perfil: ${error.response.status}`);
+    }
+};
+
 export const quizOptions = async (credentials) => {
     try {
         const response = await axios.get(`${API_URL}/quiz`);
