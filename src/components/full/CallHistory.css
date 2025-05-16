@@ -1,0 +1,12 @@
+.history-main-container {
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+    border-radius: 60px;
+    background-color: none;
+    scrollbar-color: var(--detail3) var(--detail1);
+}
+
+.history-right-alternative-container {
+    padding-right: 15px;
+}

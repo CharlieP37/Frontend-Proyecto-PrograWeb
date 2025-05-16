@@ -7,9 +7,9 @@ import 'primeicons/primeicons.css';
 import './SongCardHistory.css';
 
 const SongCardHistory = ({ 
-  songName = "Linking Park", 
-  artist = "The Emptiness Machine", 
-  date = "20/01/2024",
+  songName = "",
+  artist = "",
+  date = "",
   songImageBase64 = "",
   emotionImageBase64 = ""
 }) => {
