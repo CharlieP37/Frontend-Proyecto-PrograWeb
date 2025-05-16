@@ -43,6 +43,17 @@
     justify-content: center;
 }
 
+.status-message {
+    color: #E7DFC6;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.status-message.error {
+    color: #e57373;
+}
+
 .p-chart {
     width: 100%;
     height: 100%;

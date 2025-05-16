@@ -22,7 +22,7 @@ export const login = async (credentials) => {
 
 export const meProfile = async (data) => {
     try {
-        const response = await axios.get(`${API_URL}/user/me`, data);
+        const response = await axios.get(`${API_URL}/user/me`, { headers: { Authorization: `Bearer ${data.token}` }});
         return response.data;
     } catch (error) {
         throw new Error (`Error al obtener datos del usuario: ${error.response.status}`);
@@ -97,7 +97,7 @@ export const saveRecommendation = async (data) => {
 
 export const recommendationsHistory = async (data) => {
     try {
-        const response = await axios.get(`${API_URL}/recommendations/history`, data);
+        const response = await axios.get(`${API_URL}/recommendations/history`, { headers: { Authorization: `Bearer ${data.token}` }});
         return response.data;
     } catch (error) {
         throw new Error (`Error al obtener historial: ${error.response.status}`);
@@ -106,7 +106,7 @@ export const recommendationsHistory = async (data) => {
 
 export const recommendationsLatest = async (data) => {
     try {
-        const response = await axios.get(`${API_URL}/recommendations/latest`, data);
+        const response = await axios.get(`${API_URL}/recommendations/latest`, { headers: { Authorization: `Bearer ${data.token}` }});
         return response.data;
     } catch (error) {
         throw new Error (`Error al obtener recomendaciones recientes: ${error.response.status}`);

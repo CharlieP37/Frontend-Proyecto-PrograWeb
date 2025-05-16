@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Chart } from 'primereact/chart';
 import Top3CardSong from '../basic/Top3CardSong.js';
+import { recommendationsLatest } from '../../services/api.js';
 import './SectionHome.css';
 
 const SectionHome = () => {
+
+    const [songs, setSongs] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
     const chartData = {
         labels: ['Feliz', 'Triste', 'Enojado', 'Confundido', 'Soprendido'],
         datasets: [{
@@ -75,6 +81,27 @@ const SectionHome = () => {
         maintainAspectRatio: false
     };
 
+    useEffect(() => {
+        const fetchRecommendations = async () => {
+            setIsLoading(true);
+            setError(null);
+            try {
+                const token = localStorage.getItem('token');
+                const responseData = await recommendationsLatest({ token });
+                if (responseData?.result) {
+                    setSongs(responseData.result);
+                }
+            } catch (err) {
+                console.error("Error obteniendo últimas recomendaciones:", err);
+                setError("Hubo un error al obtener las recomendaciones.");
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchRecommendations();
+    }, []);
+
     return (
         <section className="section-home">
             <h1 className="section-title">Tu estado de ánimo, tu música. La playlist perfecta para cada emoción.</h1>
@@ -89,7 +116,18 @@ const SectionHome = () => {
                 </div>
                 
                 <div className="recommendations-container">
-                    <Top3CardSong />
+                    {isLoading ? (
+                        <p className="status-message">Cargando recomendaciones...</p>
+                    ) : error ? (
+                        <p className="status-message error">{error}</p>
+                    ) : songs.length === 0 ? (
+                        <div className="top3-container">
+                            <h2 className="top3-title">Últimas recomendaciones</h2>
+                            <p className="status-message">No hay últimas recomendaciones.</p>
+                        </div>
+                    ) : (
+                        <Top3CardSong songList={songs} />
+                    )}
                 </div>
             </div>
         </section>

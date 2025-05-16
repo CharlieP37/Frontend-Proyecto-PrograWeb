@@ -1,45 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import SongCard from './SongCard';
-import imagenCancion1 from '../../assets/LinkingrkP.svg';
-import imagenEmocion1 from '../../assets/Feliz.svg';
-import imagenCancion2 from '../../assets/ImagineDragons.jpg';
-import imagenEmocion2 from '../../assets/Tranquilo.svg';
-import imagenCancion3 from '../../assets/ThreeDaysGrace.jpg';
-import imagenEmocion3 from '../../assets/Enojado.svg';
+import imageEmotionHappy from '../../assets/Feliz.svg';
+import imageEmotionSad from '../../assets/Triste.svg';
+import imageEmotionAngry from '../../assets/Enojado.svg';
+import imageEmotionConfused from '../../assets/Confundido.svg';
+import imageEmotionDisgusted from '../../assets/Disgustado.svg';
+import imageEmotionSurprised from '../../assets/Soprendido.svg';
+import imageEmotionCalm from '../../assets/Tranquilo.svg';
+import imageEmotionFear from '../../assets/Miedo.svg';
+import imageEmotionUnknown from '../../assets/Desconocido.svg';
 import './Top3CardSong.css';
 
-const Top3CardSong = () => {
-    const songs = [
-        {
-            artist: "Linkin Park",
-            title: "The Emptiness Machine",
-            songImageUrl: imagenCancion1,
-            emotionImageUrl: imagenEmocion1
-        },
-        {
-            artist: "Imagine Dragons",
-            title: "Woke-Demo",
-            songImageUrl: imagenCancion2,
-            emotionImageUrl: imagenEmocion2
-        },
-        {
-            artist: "Three Days Grace",
-            title: "Painkiller",
-            songImageUrl: imagenCancion3,
-            emotionImageUrl: imagenEmocion3
+const Top3CardSong = ({ songList }) => {
+
+    const emotionImageSelector = (emotion) => {
+        switch(emotion){
+        case "HAPPY":
+            return imageEmotionHappy;
+        case "SAD":
+            return imageEmotionSad;
+        case "ANGRY":
+            return imageEmotionAngry;
+        case "CONFUSED":
+            return imageEmotionConfused;
+        case "DISGUSTED":
+            return imageEmotionDisgusted;
+        case "SURPRISED":
+            return imageEmotionSurprised;
+        case "CALM":
+            return imageEmotionCalm;
+        case "FEAR":
+            return imageEmotionFear;
+        default:
+            return imageEmotionUnknown;
         }
-    ];
+    };
 
     return (
         <div className="top3-container">
-            <h2 className="top3-title">Últimas 3 recomendaciones</h2>
+            <h2 className="top3-title">Últimas recomendaciones</h2>
             
             <div className="songs-list">
-                {songs.map((song, index) => (
+                {songList.map((song, index) => (
                     <SongCardWrapper 
                         key={index}
-                        imagenCancion={song.songImageUrl}
-                        imagenEmocion={song.emotionImageUrl}
+                        imagenCancion={song.image}
+                        imagenEmocion={emotionImageSelector(song.emotion)}
                         artistName={song.artist}
                         songName={song.title}
                     />
