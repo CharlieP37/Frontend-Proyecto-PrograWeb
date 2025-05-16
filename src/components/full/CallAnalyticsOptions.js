@@ -4,7 +4,7 @@ import { CameraCaptureDialog } from "../basic/CameraCapture";
 import ResultRecommendation from "../basic/ResultRecommendation";
 import SelectMethodPhoto from "./SelectMethodPhoto";
 import ImageUploader from "../basic/ImageUploader";
-import { emotion, recommendations } from "../../services/api";
+import { emotion, recommendations, saveRecommendation } from "../../services/api";
 import "./CallAnalyticsOptions.css";
 
 const CallAnalyticsOptions = ({ children }) => {
@@ -34,7 +34,8 @@ const CallAnalyticsOptions = ({ children }) => {
       if (responseData.response && responseData.response.length > 0) {
         const topEmotion = responseData.response[0].Type;
         setDetectedEmotion(topEmotion);
-        await handleMusicRecommendation(topEmotion);
+        const song = await handleMusicRecommendation(topEmotion);
+        await handleSaveRecommendation(responseData.response, song);
         setDialogVisible(false);
         setShowResult(true);
       }
@@ -56,7 +57,8 @@ const CallAnalyticsOptions = ({ children }) => {
       if (responseData.response && responseData.response.length > 0) {
         const topEmotion = responseData.response[0].Type;
         setDetectedEmotion(topEmotion);
-        await handleMusicRecommendation(topEmotion);
+        const song = await handleMusicRecommendation(topEmotion);
+        await handleSaveRecommendation(responseData.response, song);
         setUploadDialogVisible(false);
         setShowResult(true);
       }
@@ -75,8 +77,18 @@ const CallAnalyticsOptions = ({ children }) => {
       const emotionQuery = emotion + " song";
       const responseData = await recommendations({ mood: emotionQuery });
       setSongRecommendtion(responseData);
+      return responseData;
     } catch (error) {
       console.error("Error al obtener recomendación: ", error.message);
+    }
+  }
+
+  const handleSaveRecommendation = async (emotions, song) => {
+    try {
+      const data = ({ token: localStorage.getItem('token'), emotions: emotions, track: song});
+      await saveRecommendation(data);
+    } catch (error) {
+      console.error("Error al almacenar recomendación", error.message);
     }
   }
 

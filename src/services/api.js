@@ -86,6 +86,15 @@ export const recommendations = async (data) => {
     }
 };
 
+export const saveRecommendation = async (data) => {
+    try {
+        const response = await axios.post(`${API_URL}/recommendations/save`, data);
+        return response.data;
+    } catch (error) {
+        throw new Error (`Error al guardar recomendación: ${error.response.status}`);
+    }
+};
+
 export const recommendationsHistory = async (data) => {
     try {
         const response = await axios.get(`${API_URL}/recommendations/history`, data);
