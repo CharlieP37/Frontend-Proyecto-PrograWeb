@@ -14,7 +14,6 @@
 /* First Dialog */
 
 #initialwelcomeDialogDefault {
-    /* max-width: 50%; */
     min-width: 500px;
     width: 750px;
 }
@@ -89,8 +88,6 @@
     color: var(--font-primary);
 }
 
-.p-float-label > #personnameLabel,
-.p-float-label > #personlastnameLabel,
 .p-float-label > #sexLabel,
 .p-float-label > #countryLabel
 {
@@ -100,22 +97,24 @@
 
 .p-float-label:has(input:focus) #personnameLabel, .p-float-label:has(input.p-filled) #personnameLabel, .p-float-label:has(input:-webkit-autofill) #personnameLabel, .p-float-label:has(textarea:focus) #personnameLabel, .p-float-label:has(textarea.p-filled) #personnameLabel, .p-float-label:has(.p-inputwrapper-focus) #personnameLabel, .p-float-label:has(.p-inputwrapper-filled) #personnameLabel
 {
-    left: calc(40%);
     font-size: 12px;
 }
 
 .p-float-label:has(input:focus) #personlastnameLabel, .p-float-label:has(input.p-filled) #personlastnameLabel, .p-float-label:has(input:-webkit-autofill) #personlastnameLabel, .p-float-label:has(textarea:focus) #personlastnameLabel, .p-float-label:has(textarea.p-filled) #personlastnameLabel, .p-float-label:has(.p-inputwrapper-focus) #personlastnameLabel, .p-float-label:has(.p-inputwrapper-filled) #personlastnameLabel {
-    left: calc(40%);
     font-size: 12px;
 }
 
 .p-float-label:has(input:focus) #sexLabel, .p-float-label:has(input.p-filled) #sexLabel, .p-float-label:has(input:-webkit-autofill) #sexLabel, .p-float-label:has(textarea:focus) #sexLabel, .p-float-label:has(textarea.p-filled) #sexLabel, .p-float-label:has(.p-inputwrapper-focus) #sexLabel, .p-float-label:has(.p-inputwrapper-filled) #sexLabel {
-    left: calc(40%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 12px;
 }
 
 .p-float-label:has(input:focus) #countryLabel, .p-float-label:has(input.p-filled) #countryLabel, .p-float-label:has(input:-webkit-autofill) #countryLabel, .p-float-label:has(textarea:focus) #countryLabel, .p-float-label:has(textarea.p-filled) #countryLabel, .p-float-label:has(.p-inputwrapper-focus) #countryLabel, .p-float-label:has(.p-inputwrapper-filled) #countryLabel {
-    left: calc(40%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 12px;
 }
 

@@ -138,33 +138,20 @@ span > .p-button:hover{
     color: var(--font-primary);
 }
 
-.p-float-label > #usernameLabel,
-.p-float-label > #emailLabel,
-.p-float-label > #passwordLabel,
-.p-float-label > #passwordconfirmLabel
-{
-    left: 0.75rem;
-    transition-duration: 0.2s;
-}
-
 .p-float-label:has(input:focus) #usernameLabel, .p-float-label:has(input.p-filled) #usernameLabel, .p-float-label:has(input:-webkit-autofill) #usernameLabel, .p-float-label:has(textarea:focus) #usernameLabel, .p-float-label:has(textarea.p-filled) #usernameLabel, .p-float-label:has(.p-inputwrapper-focus) #usernameLabel, .p-float-label:has(.p-inputwrapper-filled) #usernameLabel
 {
-    left: 9rem;
     font-size: 12px;
 }
 
 .p-float-label:has(input:focus) #emailLabel, .p-float-label:has(input.p-filled) #emailLabel, .p-float-label:has(input:-webkit-autofill) #emailLabel, .p-float-label:has(textarea:focus) #emailLabel, .p-float-label:has(textarea.p-filled) #emailLabel, .p-float-label:has(.p-inputwrapper-focus) #emailLabel, .p-float-label:has(.p-inputwrapper-filled) #emailLabel {
-    left: 7.25rem;
     font-size: 12px;
 }
 
 .p-float-label:has(input:focus) #passwordLabel, .p-float-label:has(input.p-filled) #passwordLabel, .p-float-label:has(input:-webkit-autofill) #passwordLabel, .p-float-label:has(textarea:focus) #passwordLabel, .p-float-label:has(textarea.p-filled) #passwordLabel, .p-float-label:has(.p-inputwrapper-focus) #passwordLabel, .p-float-label:has(.p-inputwrapper-filled) #passwordLabel {
-    left: 8rem;
     font-size: 12px;
 }
 
 .p-float-label:has(input:focus) #passwordconfirmLabel, .p-float-label:has(input.p-filled) #passwordconfirmLabel, .p-float-label:has(input:-webkit-autofill) #passwordconfirmLabel, .p-float-label:has(textarea:focus) #passwordconfirmLabel, .p-float-label:has(textarea.p-filled) #passwordconfirmLabel, .p-float-label:has(.p-inputwrapper-focus) #passwordconfirmLabel, .p-float-label:has(.p-inputwrapper-filled) #passwordconfirmLabel {
-    left: 6.50rem;
     font-size: 12px;
 }
 
@@ -176,7 +163,9 @@ span > .p-button:hover{
 }
 
 .p-float-label:has(input:focus) #birthDateLabel, .p-float-label:has(input.p-filled) #birthDateLabel, .p-float-label:has(input:-webkit-autofill) #birthDateLabel, .p-float-label:has(textarea:focus) #birthDateLabel, .p-float-label:has(textarea.p-filled) #birthDateLabel, .p-float-label:has(.p-inputwrapper-focus) #birthDateLabel, .p-float-label:has(.p-inputwrapper-filled) #birthDateLabel {
-    left: calc(32%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 12px;
 }
 

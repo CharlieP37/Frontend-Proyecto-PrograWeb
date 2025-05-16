@@ -34,20 +34,11 @@
     color: var(--font-primary);
 }
 
-.p-float-label > #usernameloginLabel,
-.p-float-label > #passwordloginLabel
-{
-    left: 0.75rem;
-    transition-duration: 0.2s;
-}
-
 .p-float-label:has(input:focus) #usernameloginLabel, .p-float-label:has(input.p-filled) #usernameloginLabel, .p-float-label:has(input:-webkit-autofill) #usernameloginLabel, .p-float-label:has(textarea:focus) #usernameloginLabel, .p-float-label:has(textarea.p-filled) #usernameloginLabel, .p-float-label:has(.p-inputwrapper-focus) #usernameloginLabel, .p-float-label:has(.p-inputwrapper-filled) #usernameloginLabel
 {
-    left: 6.5rem;
     font-size: 12px;
 }
 
 .p-float-label:has(input:focus) #passwordloginLabel, .p-float-label:has(input.p-filled) #passwordloginLabel, .p-float-label:has(input:-webkit-autofill) #passwordloginLabel, .p-float-label:has(textarea:focus) #passwordloginLabel, .p-float-label:has(textarea.p-filled) #passwordloginLabel, .p-float-label:has(.p-inputwrapper-focus) #passwordloginLabel, .p-float-label:has(.p-inputwrapper-filled) #passwordloginLabel {
-    left: 5.75rem;
     font-size: 12px;
 }

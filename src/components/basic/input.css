@@ -28,3 +28,17 @@
 .custom-input:focus {
     outline: none;
 }
+
+/* FLoat Label Style */
+
+.custom-label {
+    color: var(--font-primary);
+    left: 0.75rem;
+    transition-duration: 0.2s;
+}
+
+.custom-floatlabel:has(input:focus) .custom-label, .custom-floatlabel:has(input.p-filled) .custom-label, .custom-floatlabel:has(input:-webkit-autofill) .custom-label, .custom-floatlabel:has(textarea:focus) .custom-label, .custom-floatlabel:has(textarea.p-filled) .custom-label, .custom-floatlabel:has(.p-inputwrapper-focus) .custom-label, .custom-floatlabel:has(.p-inputwrapper-filled) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
