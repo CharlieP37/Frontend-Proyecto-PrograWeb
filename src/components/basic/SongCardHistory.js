@@ -115,7 +115,7 @@ const SongCardHistory = ({
         </div>
 
         <div className="song-history-actions">
-          <Button 
+          <Button
             icon="pi pi-heart" 
             className={`song-history-like-button ${likeButtonClass}`}
             onClick={handleLike}
@@ -123,7 +123,7 @@ const SongCardHistory = ({
             tooltipOptions={{ position: 'top' }}
           />
           <Button 
-            icon="pi pi-heart-fill" 
+            icon="pi pi-ban"
             className={`song-history-dislike-button ${dislikeButtonClass}`}
             onClick={handleDislike}
             tooltip={reaction === 'dislike' ? "Quitar dislike" : "No me gusta"}
