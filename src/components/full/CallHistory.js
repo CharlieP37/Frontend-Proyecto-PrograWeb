@@ -71,7 +71,6 @@ const CallHistory = ({ children }) => {
                     loadedImages[`emotion${index}`] = '';
                 }
             });
-            console.log(loadedImages);
 
             await Promise.all(loaders);
             setImages(loadedImages);
@@ -91,11 +90,13 @@ const CallHistory = ({ children }) => {
                     {songs.map((song, index) => (
                         <SongCardHistory
                             key={song.id}
+                            id={song.id}
                             songName={song.title}
                             artist={song.artist}
                             date={song.date}
                             songImageBase64={images[`song${index}`]}
                             emotionImageBase64={images[`emotion${index}`]}
+                            feedback={song.feedback === true ? "like" : song.feedback === false ? "dislike" : null}
                         />
                     ))}
                     {children}

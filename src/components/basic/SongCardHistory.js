@@ -5,32 +5,49 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import './SongCardHistory.css';
+import { setRecommendationFeedback } from '../../services/api.js';
 
-const SongCardHistory = ({ 
+const SongCardHistory = ({
+  id,
   songName = "",
   artist = "",
   date = "",
   songImageBase64 = "",
-  emotionImageBase64 = ""
+  emotionImageBase64 = "",
+  feedback
 }) => {
-  const [reaction, setReaction] = useState(null);
+  const [reaction, setReaction] = useState(feedback);
+  const [Id] = useState(id);
 
-  const handleLike = () => {
+  const handleSetRecommendationFeedback = async (value) => {
+    try {
+      const data = ({ token: localStorage.getItem('token'), feedback: value });
+      await setRecommendationFeedback(Id, data);
+    } catch (error) {
+      console.error("Error al actualizar feedbakc de recomendación", error.message);
+    };
+  };
+
+  const handleLike = async () => {
     if (reaction === 'like') {
       setReaction(null);
+      await handleSetRecommendationFeedback(null);
       alert(`Quitaste tu LIKE de "${songName}"`);
     } else {
       setReaction('like');
+      await handleSetRecommendationFeedback(true);
       alert(`LIKE a "${songName}"`);
     }
   };
 
-  const handleDislike = () => {
+  const handleDislike = async () => {
     if (reaction === 'dislike') {
       setReaction(null);
+      await handleSetRecommendationFeedback(null);
       alert(`Quitaste tu DISLIKE de "${songName}"`);
     } else {
       setReaction('dislike');
+      await handleSetRecommendationFeedback(false);
       alert(`DISLIKE a "${songName}"`);
     }
   };

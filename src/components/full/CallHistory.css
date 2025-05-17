@@ -10,3 +10,14 @@
 .history-right-alternative-container {
     padding-right: 15px;
 }
+
+.status-message {
+    color: #E7DFC6;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.status-message.error {
+    color: #e57373;
+}

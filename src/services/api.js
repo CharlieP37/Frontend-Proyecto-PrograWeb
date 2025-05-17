@@ -113,6 +113,15 @@ export const recommendationsLatest = async (data) => {
     }
 };
 
+export const setRecommendationFeedback = async (id, feedback) => {
+    try {
+        const response = await axios.patch(`${API_URL}/recommendations/${id}`, feedback);
+        return response.data;
+    } catch (error) {
+        throw new Error (`Error al guardar feedback de la recomendación: ${error.response.status}`);
+    }
+}
+
 export const dashboard = async (data) => {
     try {
         const response = await axios.post(`${API_URL}/dashboard/weekly-summary`, data);
