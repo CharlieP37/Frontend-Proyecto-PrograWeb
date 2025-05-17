@@ -186,6 +186,13 @@
     transform: scale(1.1);
 }
 
+.song-history-like-button:focus,
+.song-history-dislike-button:focus,
+.song-listen-window-button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 .song-history-active-like {
     color: #ff6b6b !important;
     transform: scale(1.15) !important;
