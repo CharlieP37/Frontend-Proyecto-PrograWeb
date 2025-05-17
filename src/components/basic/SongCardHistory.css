@@ -208,3 +208,12 @@
     white-space: nowrap;
     letter-spacing: 0.5px;
 }
+
+.song-history-link {
+  text-decoration: none;
+}
+
+.song-history-link:hover, .song-history-link:active {
+  text-decoration: none;
+  text-shadow: 1px 2px 2px var(--detail4);
+}

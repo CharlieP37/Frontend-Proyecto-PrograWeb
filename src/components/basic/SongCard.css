@@ -104,3 +104,12 @@
   padding: 10px;
   background-color: var(--background);
 }
+
+.song-top-link {
+  text-decoration: none;
+}
+
+.song-top-link:hover, .song-top-link:active {
+  text-decoration: none;
+  text-shadow: 1px 2px 2px var(--detail4);
+}

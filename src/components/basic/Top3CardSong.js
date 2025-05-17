@@ -48,6 +48,7 @@ const Top3CardSong = ({ songList }) => {
                         imagenEmocion={emotionImageSelector(song.emotion)}
                         artistName={song.artist}
                         songName={song.title}
+                        url={song.URL}
                     />
                 ))}
             </div>
@@ -55,7 +56,7 @@ const Top3CardSong = ({ songList }) => {
     );
 };
 
-const SongCardWrapper = ({ imagenCancion, imagenEmocion, artistName, songName }) => {
+const SongCardWrapper = ({ imagenCancion, imagenEmocion, artistName, songName, url }) => {
     const [songImageBase64, setSongImageBase64] = useState("");
     const [emotionImageBase64, setEmotionImageBase64] = useState("");
 
@@ -92,7 +93,8 @@ const SongCardWrapper = ({ imagenCancion, imagenEmocion, artistName, songName })
             songImage={songImageBase64} 
             artistName={artistName} 
             songName={songName} 
-            emotionImage={emotionImageBase64} 
+            emotionImage={emotionImageBase64}
+            url={url}
         />
     );
 };

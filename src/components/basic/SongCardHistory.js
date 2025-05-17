@@ -14,6 +14,7 @@ const SongCardHistory = ({
   date = "",
   songImageBase64 = "",
   emotionImageBase64 = "",
+  url = "",
   feedback
 }) => {
   const [reaction, setReaction] = useState(feedback);
@@ -83,13 +84,20 @@ const SongCardHistory = ({
           >
             {artist}
           </p>
-          <h3 
-            className="song-history-title"
-            data-pr-tooltip={songName}
-            data-pr-position="top"
+          <a
+            href={url}
+            target='_blank'
+            rel="noopener noreferrer"
+            className='song-history-link'
           >
-            {songName}
-          </h3>
+            <h3 
+              className="song-history-title"
+              data-pr-tooltip={songName}
+              data-pr-position="top"
+            >
+              {songName}
+            </h3>
+          </a>
         </div>
 
         <div className="song-history-emotion-container">

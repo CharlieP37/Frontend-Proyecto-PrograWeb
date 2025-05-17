@@ -1,7 +1,7 @@
 import React from 'react';
 import './SongCard.css';
 
-const SongCard = ({ songImage, artistName, songName, emotionImage }) => {
+const SongCard = ({ songImage, artistName, songName, emotionImage, url }) => {
   return (
     <div className="song-card">
       <div className="song-image-container">
@@ -15,7 +15,14 @@ const SongCard = ({ songImage, artistName, songName, emotionImage }) => {
       <div className="song-info">
         <div className="text-content">
           <h2 className="artist-name">{artistName}</h2>
-          <h1 className="song-title">{songName}</h1>
+          <a
+            href={url}
+            target='_blank'
+            rel="noopener noreferrer"
+            className='song-top-link'
+          >
+            <h1 className="song-title">{songName}</h1>
+          </a>
         </div>
         
         <div className="emotion-container">

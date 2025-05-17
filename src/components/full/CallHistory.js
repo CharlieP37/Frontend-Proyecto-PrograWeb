@@ -96,6 +96,7 @@ const CallHistory = ({ children }) => {
                             date={song.date}
                             songImageBase64={images[`song${index}`]}
                             emotionImageBase64={images[`emotion${index}`]}
+                            url={song.URL}
                             feedback={song.feedback === true ? "like" : song.feedback === false ? "dislike" : null}
                         />
                     ))}
