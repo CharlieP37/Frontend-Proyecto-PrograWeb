@@ -315,3 +315,16 @@ span > .p-button:hover{
     background-color: none;
     box-shadow: none;
 }
+
+/* Error */
+
+.form-error-container {
+    width: 100%;
+}
+
+.form-error-message {
+    color: #f44336;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center;
+}

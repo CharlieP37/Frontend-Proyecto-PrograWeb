@@ -42,11 +42,36 @@ function CreateForm({ visible, onHide }){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
 
         if (!formData.username || !formData.email || !formData.password || !formData.passwordconfirm || !formData.birthDate) {
-            alert("Error! Debe llenar correctamente todos los campos");
+            setError("Por favor, complete todos los campos.");
             return;
         };
+
+        const usernameRegex = /^(?!.*[._-]{2})[a-zA-Z0-9._-]{3,20}$/;
+        if (!usernameRegex.test(formData.username)) {
+            setError("El nombre de usuario debe\ntener entre 3 y 20 caracteres,\n y solo puede contener letras, números, puntos (.),\n guiones (-) o \nguiones bajos (_),\n sin símbolos repetidos.");
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email) || formData.email.length > 255) {
+            setError("El correo electrónico no es válido.");
+            return;
+        }
+
+        if (formData.password !== formData.passwordconfirm) {
+            setError("Las contraseñas no coinciden.");
+            return;
+        }
+
+        const today = new Date();
+        const minBirthDate = new Date(today.getFullYear() - 13, today.getMonth(), today.getDate());
+        if (formData.birthDate > minBirthDate) {
+            setError("Debes tener al menos 13 años para registrarte.");
+            return;
+        }
 
         try {
             const credentials = ({ user: formData.username, email: formData.email, password: formData.password, birthday: formData.birthDate });
@@ -58,7 +83,7 @@ function CreateForm({ visible, onHide }){
             navigate("/home");
         }
         catch (e) {
-            setError(e.message);
+            setError(e.message || "Ocurrió un error durante el registro.");
         };
 
     };
@@ -134,6 +159,15 @@ function CreateForm({ visible, onHide }){
                             </div>
                         </div>
                         <div className="custom-container createaccount-btn-container">
+                            <div className="form-error-message">
+                                <br></br>
+                                {error.split('\n').map((line, idx) => (
+                                <span key={idx}>
+                                    {line}
+                                    <br />
+                                </span>
+                                ))}
+                            </div>
                             <CustomButton type={"submit"} atributes={{name: "createaccountBtn", value:"0", text: "Crear"}}/>
                         </div>
                     </div>
