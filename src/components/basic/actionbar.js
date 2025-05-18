@@ -3,25 +3,26 @@ import { Button } from 'primereact/button';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
-import './actionbar.css';
-import imagenCancion from '../../assets/LinkingrkP.svg';
-import imagenEmocion from '../../assets/Feliz.svg';
+import DialogHeader from '../basic/dialogheader';
 import { convertImportedImageToBase64 } from './imageUtils';
+import './actionbar.css';
 
 const ActionBar = ({ 
-  songName = "Linking Park", 
-  artist = "The Emptiness Machine", 
+  id,
+  songName = "", 
+  artist = "", 
   songImageBase64 = "",
-  emotionImageBase64 = ""
+  emotionImageBase64 = "",
+  url = ""
 }) => {
-  const [reaction, setReaction] = useState(null);
   const [songImage, setSongImage] = useState("");
   const [emotionImage, setEmotionImage] = useState("");
+  const [dialogVisible, setDialogVisible] = useState(false);
 
   useEffect(() => {
     const loadImages = async () => {
-      const songImg = songImageBase64 || imagenCancion;
-      const emotionImg = emotionImageBase64 || imagenEmocion;
+      const songImg = songImageBase64;
+      const emotionImg = emotionImageBase64;
       
       const songBase64 = await convertImportedImageToBase64(songImg);
       const emotionBase64 = await convertImportedImageToBase64(emotionImg);
@@ -31,85 +32,91 @@ const ActionBar = ({
     };
     
     loadImages();
-  }, [songImageBase64, emotionImageBase64]);
+  }, [songImageBase64, emotionImageBase64, id]);
 
-  const handleLike = () => {
-    if (reaction === 'like') {
-      setReaction(null);
-      alert(`Quitaste tu LIKE de "${songName}"`);
-    } else {
-      setReaction('like');
-      alert(`LIKE a "${songName}"`);
-    }
+  const handleMusic = () => {
+    setDialogVisible(true);
   };
 
-  const handleDislike = () => {
-    if (reaction === 'dislike') {
-      setReaction(null);
-      alert(`Quitaste tu DISLIKE de "${songName}"`);
-    } else {
-      setReaction('dislike');
-      alert(`DISLIKE a "${songName}"`);
-    }
-  };
-
-  const likeButtonClass = reaction === 'like' ? 'song-history-active-like' : reaction === 'dislike' ? 'song-history-inactive' : '';
-  const dislikeButtonClass = reaction === 'dislike' ? 'song-history-active-dislike' : reaction === 'like' ? 'song-history-inactive' : '';
+  function extractSpotifyTrackId(url) {
+    const match = url.match(/track\/([a-zA-Z0-9]+)/);
+    return match ? match[1] : null;
+  }
 
   return (
-    <div className="song-card-container">
-      <div className="song-card-main">
-        <div className="song-image-container">
-          {songImage ? (
-            <img 
-              src={songImage} 
-              alt={`Portada de ${songName}`} 
-              className="song-image"
+    <>
+      <div className="song-card-container">
+        <div className="song-card-main">
+          <div className="song-image-container">
+            {songImage ? (
+              <img 
+                src={songImage}
+                alt={`Portada de ${songName}`}
+                className="song-image"
+              />
+            ) : (
+              <div className="song-image-placeholder">
+                <i className="pi pi-music" />
+              </div>
+            )}
+          </div>
+
+          <div className="song-text-info">
+            <p className="song-artist">{artist}</p>
+            <a
+              href={url}
+              target='_blank'
+              rel="noopener noreferrer"
+              className='song-actionbar-link'
+            >
+              <h3 className="song-title">{songName}</h3>
+            </a>
+          </div>
+
+          <div className="emotion-image-container">
+            {emotionImage ? (
+              <img 
+                src={emotionImage} 
+                alt="Emoción de la canción"
+                className="emotion-image"
+              />
+            ) : (
+              <div className="emotion-placeholder">
+                <i className="pi pi-image" />
+              </div>
+            )}
+          </div>
+
+          <div className="song-actions">
+            <Button
+              icon="pi pi-play-circle"
+              className='song-listen-window-button'
+              onClick={handleMusic}
+              tooltip='Reproducir Canción'
+              tooltipOptions={{position: "top"}}
             />
-          ) : (
-            <div className="song-image-placeholder">
-              <i className="pi pi-music" />
-            </div>
-          )}
-        </div>
-
-        <div className="song-text-info">
-          <p className="song-artist">{artist}</p>
-          <h3 className="song-title">{songName}</h3>
-        </div>
-
-        <div className="emotion-image-container">
-          {emotionImage ? (
-            <img 
-              src={emotionImage} 
-              alt="Emoción de la canción"
-              className="emotion-image"
-            />
-          ) : (
-            <div className="emotion-placeholder">
-              <i className="pi pi-image" />
-            </div>
-          )}
-        </div>
-
-        <div className="song-actions">
-          <Button 
-            icon="pi pi-heart" 
-            className={`song-history-like-button ${likeButtonClass}`}
-            onClick={handleLike}
-            tooltip={reaction === 'like' ? "Quitar like" : "Me gusta"}
-            tooltipOptions={{ position: 'top' }}
-          />
-          <Button 
-            icon="pi pi-heart-fill" 
-            className={`song-history-dislike-button ${dislikeButtonClass}`}
-            onClick={handleDislike}
-            tooltip={reaction === 'dislike' ? "Quitar dislike" : "No me gusta"}
-            tooltipOptions={{ position: 'top' }}
-          />
+          </div>
         </div>
       </div>
-    </div>
+      {dialogVisible && (
+        <DialogHeader
+          id={"playerspotify"}
+          visible={dialogVisible}
+          onHide={() => setDialogVisible(false)}
+          children={
+            <div className='music-player-preview-container'>
+              <iframe
+              className='spotify-iframe-custom'
+              src={`https://open.spotify.com/embed/track/${extractSpotifyTrackId(url)}`}
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Spotify Embed"
+              ></iframe>
+            </div>
+          }
+        />)}
+    </>
   );
 };
 

@@ -20,27 +20,27 @@ const CallHistory = ({ children }) => {
     const [error, setError] = useState(null);
 
     const emotionImageSelector = (emotion) => {
-            switch(emotion){
-            case "HAPPY":
-                return imageEmotionHappy;
-            case "SAD":
-                return imageEmotionSad;
-            case "ANGRY":
-                return imageEmotionAngry;
-            case "CONFUSED":
-                return imageEmotionConfused;
-            case "DISGUSTED":
-                return imageEmotionDisgusted;
-            case "SURPRISED":
-                return imageEmotionSurprised;
-            case "CALM":
-                return imageEmotionCalm;
-            case "FEAR":
-                return imageEmotionFear;
-            default:
-                return imageEmotionUnknown;
-            }
-        };
+        switch(emotion){
+        case "HAPPY":
+            return imageEmotionHappy;
+        case "SAD":
+            return imageEmotionSad;
+        case "ANGRY":
+            return imageEmotionAngry;
+        case "CONFUSED":
+            return imageEmotionConfused;
+        case "DISGUSTED":
+            return imageEmotionDisgusted;
+        case "SURPRISED":
+            return imageEmotionSurprised;
+        case "CALM":
+            return imageEmotionCalm;
+        case "FEAR":
+            return imageEmotionFear;
+        default:
+            return imageEmotionUnknown;
+        }
+    };
 
     useEffect(() => {
         const fetchHistory = async () => {
