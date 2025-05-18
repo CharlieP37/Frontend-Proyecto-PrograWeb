@@ -42,3 +42,12 @@
 .p-float-label:has(input:focus) #passwordloginLabel, .p-float-label:has(input.p-filled) #passwordloginLabel, .p-float-label:has(input:-webkit-autofill) #passwordloginLabel, .p-float-label:has(textarea:focus) #passwordloginLabel, .p-float-label:has(textarea.p-filled) #passwordloginLabel, .p-float-label:has(.p-inputwrapper-focus) #passwordloginLabel, .p-float-label:has(.p-inputwrapper-filled) #passwordloginLabel {
     font-size: 12px;
 }
+
+/* Error */
+
+.form-login-error-message {
+    color: #f44336;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center;
+}

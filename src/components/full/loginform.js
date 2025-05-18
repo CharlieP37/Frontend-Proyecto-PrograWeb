@@ -25,9 +25,10 @@ function LoginForm({ visible, onHide }){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');        
 
         if (!formData.usernamelogin || !formData.passwordlogin) {
-            alert("Error! Ingrese información de inicio de sesión.");
+            setError("Error! Ingrese información de inicio de sesión.");
             return;
         };
 
@@ -40,7 +41,7 @@ function LoginForm({ visible, onHide }){
             navigate("/home");
         }
         catch (e) {
-            setError(e.message);
+            setError(e.message || "Ocurrió un error durante el inicio de sesión.");
         };
     };
 
@@ -61,6 +62,7 @@ function LoginForm({ visible, onHide }){
                             <CustomInput type={"text"} atributes={{name: "usernamelogin", label:"Usuario"}} value={formData.username} onChange={handleChange}/>
                             <CustomInput type={"password"} atributes={{name: "passwordlogin", label:"Contraseña"}} value={formData.password} onChange={handleChange}/>
                         </div>
+                        {error && <div className="form-login-error-message">{error}<br/><br/></div>}
                         <div className="enterlogin-btn-container">
                             <CustomButton type={"submit"} atributes={{name: "loginBtn", value:"0", text: "Entrar"}}/>
                         </div>
