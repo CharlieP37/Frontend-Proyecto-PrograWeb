@@ -136,7 +136,7 @@ export async function dashboard() {
     
     if (!token) throw new Error('No token found');
 
-    const response = await axios.get('http://localhost:3001/dashboard/weekly-summary', {
+    const response = await axios.get(`${API_URL}/dashboard/weekly-summary`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
