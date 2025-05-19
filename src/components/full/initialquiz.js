@@ -33,12 +33,13 @@ function InitialQuiz(){
     const sex = [
         "Masculino",
         "Femenino"
+    ];
     
     const questions = [
         "¿Qué género musical disfrutas más?",
         "¿Cuál de los siguientes artistas escuchas?",
         "¿Qué canción te gusta más?"
-    ]
+    ];
     
     const handleNextClick = async () => {
         setDialogVisible1(false);
@@ -120,7 +121,6 @@ function InitialQuiz(){
             const responseData = await quizOptions();
             const options = [responseData.genre, responseData.artists, responseData.songs];
             setQuestionOptions(options);
-
         } catch (error) {
             console.error("Error al obtener opciones para quiz: ", error.message);
         }
