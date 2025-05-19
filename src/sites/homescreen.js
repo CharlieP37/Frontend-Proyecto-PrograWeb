@@ -84,15 +84,16 @@ function HomeScreen(){
                         url: latest.URL
                     });
                     console.log(latest);
-                }
-                setLatestRecommendation({
-                        id: null,
-                        songName: "No hay recomendaciones",
-                        artist: "",
-                        songImageBase64: "https://img.icons8.com/ios-filled/50/100-percents.png",
-                        emotionImageBase64: "https://img.icons8.com/ios-filled/50/100-percents.png",
-                        url: null
-                    });
+                } else {
+                    setLatestRecommendation({
+                            id: null,
+                            songName: "No hay recomendaciones",
+                            artist: "",
+                            songImageBase64: "https://img.icons8.com/ios-filled/50/100-percents.png",
+                            emotionImageBase64: "https://img.icons8.com/ios-filled/50/100-percents.png",
+                            url: null
+                        });
+                };
             } catch (error) {
                 console.error("Error fetching latest recommendation:", error);
             }
