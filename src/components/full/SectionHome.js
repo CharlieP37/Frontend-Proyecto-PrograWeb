@@ -1,30 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Chart } from 'primereact/chart';
 import Top3CardSong from '../basic/Top3CardSong.js';
-import { recommendationsLatest } from '../../services/api.js';
+import { recommendationsLatest, dashboard } from '../../services/api.js';
 import './SectionHome.css';
 
 const SectionHome = () => {
-
     const [songs, setSongs] = useState([]);
+    const [chartData, setChartData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    
-    const chartData = {
-        labels: ['Feliz', 'Triste', 'Enojado', 'Confundido', 'Soprendido'],
-        datasets: [{
-            data: [30, 15, 20, 25, 40],
-            backgroundColor: [
-                '#5C8374',
-                '#93B1A6',
-                '#E7DFC6',
-                '#F1E9DB',
-                '#183D3D'
-            ],
-            borderColor: '#040D12',
-            borderWidth: 1
-        }]
-    };
 
     const chartOptions = {
         plugins: {
@@ -82,24 +66,47 @@ const SectionHome = () => {
     };
 
     useEffect(() => {
-        const fetchRecommendations = async () => {
+        const fetchData = async () => {
             setIsLoading(true);
             setError(null);
             try {
                 const token = localStorage.getItem('token');
-                const responseData = await recommendationsLatest({ token });
-                if (responseData?.result) {
-                    setSongs(responseData.result);
+
+                const recData = await recommendationsLatest({ token });
+                if (recData?.result) {
+                    setSongs(recData.result);
+                }
+                
+                const summaryData = await dashboard({ token });
+                if (summaryData?.emotionChart) {
+                    const labels = Object.keys(summaryData.emotionChart);
+                    const data = Object.values(summaryData.emotionChart);
+
+                    const colors = [
+                        '#5C8374', '#93B1A6', '#E7DFC6',
+                        '#F1E9DB', '#183D3D', '#B68973',
+                        '#8E806A', '#B2C8BA', '#FFF2D7'
+                    ];
+
+                    setChartData({
+                        labels,
+                        datasets: [{
+                            data,
+                            backgroundColor: colors.slice(0, labels.length),
+                            borderColor: '#040D12',
+                            borderWidth: 1
+                        }]
+                    });
                 }
             } catch (err) {
-                console.error("Error obteniendo últimas recomendaciones:", err);
-                setError("Hubo un error al obtener las recomendaciones.");
+                console.error("Error en SectionHome:", err);
+                setError("Hubo un error al obtener los datos.");
             } finally {
                 setIsLoading(false);
             }
         };
 
-        fetchRecommendations();
+        fetchData();
     }, []);
 
     return (
@@ -108,11 +115,15 @@ const SectionHome = () => {
             
             <div className="content-wrapper">
                 <div className="chart-container">
-                    <Chart 
-                        type="polarArea" 
-                        data={chartData} 
-                        options={chartOptions} 
-                    />
+                    {chartData ? (
+                        <Chart 
+                            type="polarArea" 
+                            data={chartData} 
+                            options={chartOptions} 
+                        />
+                    ) : (
+                        <p className="status-message">Cargando gráfica de emociones...</p>
+                    )}
                 </div>
                 
                 <div className="recommendations-container">

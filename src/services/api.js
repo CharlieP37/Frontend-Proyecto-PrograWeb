@@ -122,11 +122,16 @@ export const setRecommendationFeedback = async (id, feedback) => {
     }
 }
 
-export const dashboard = async (data) => {
-    try {
-        const response = await axios.post(`${API_URL}/dashboard/weekly-summary`, data);
-        return response.data;
-    } catch (error) {
-        throw new Error (`Error al generar informe semanal: ${error.response.status}`);
-    }
-};
+export async function dashboard() {
+  const token = localStorage.getItem('token');
+  console.log('Llamando a API dashboard con token:', token);
+
+  if (!token) throw new Error('No token found');
+
+  const response = await axios.get('http://localhost:3001/dashboard/weekly-summary', {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+}
