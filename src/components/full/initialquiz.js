@@ -33,7 +33,6 @@ function InitialQuiz(){
     const sex = [
         "Masculino",
         "Femenino"
-    ]
     
     const questions = [
         "¿Qué género musical disfrutas más?",

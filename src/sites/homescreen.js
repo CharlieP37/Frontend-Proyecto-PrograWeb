@@ -75,8 +75,6 @@ function HomeScreen(){
                     const songImageBase64 = (latest.image);
                     const emotionImageBase64 = emotionImageSelector(latest.emotion);
 
-                    console.log(latest);
-
                     setLatestRecommendation({
                         id: latest.id,
                         songName: latest.title,
@@ -93,7 +91,7 @@ function HomeScreen(){
 
         fetchLatestRecommendation();
 
-        const interval = setInterval(fetchLatestRecommendation, 15000);
+        const interval = setInterval(fetchLatestRecommendation, 30000);
         return () => clearInterval(interval);
     }, []);
 

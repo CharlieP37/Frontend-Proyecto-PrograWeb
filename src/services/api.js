@@ -29,6 +29,15 @@ export const meProfile = async (data) => {
     }
 };
 
+export const updateProfile = async (data) => {
+    try {
+        const response = await axios.patch(`${API_URL}/user/update`, data);
+        return response.data;
+    } catch (error) {
+        throw new Error (`Error al actualizar datos del usuario: ${error.response.status}`);
+    }
+};
+
 export const profileOptions = async () => {
     try {
         const response = await axios.get(`${API_URL}/user/options`);
@@ -123,15 +132,14 @@ export const setRecommendationFeedback = async (id, feedback) => {
 }
 
 export async function dashboard() {
-  const token = localStorage.getItem('token');
-  console.log('Llamando a API dashboard con token:', token);
+    const token = localStorage.getItem('token');
+    
+    if (!token) throw new Error('No token found');
 
-  if (!token) throw new Error('No token found');
-
-  const response = await axios.get('http://localhost:3001/dashboard/weekly-summary', {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return response.data;
+    const response = await axios.get('http://localhost:3001/dashboard/weekly-summary', {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    return response.data;
 }

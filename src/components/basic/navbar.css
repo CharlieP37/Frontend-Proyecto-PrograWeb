@@ -54,8 +54,91 @@
     justify-content: center;
     justify-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 #signoutBtnContainer {
     margin-left: 10px;
+}
+
+.information-account-icon-container {
+    background-color: var(--font-primary);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+#profileIcon2 {
+    width: 70px;
+    height: 70px;
+}
+
+.profile-row-one-information,
+.profile-row-two-information {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: 40px 10px;
+    flex-grow: 1;
+}
+
+.profile-row-three-information {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: -20px 10px 40px;
+    flex-grow: 1;
+}
+
+#profilesexLabel,
+#profilecountryLabel {
+    font-size: 12px;
+}
+
+.profile-row-four-information {
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: 50px 100px 40px;
+}
+
+.profile-middle-div {
+    margin: 0 10px;
+}
+
+.quizcard-profile {
+    flex-grow: 1;
+    max-width: 50%;
+}
+
+.profile-row-btn-container{
+    display: flex;
+    justify-content: center;
+    margin: 20px 20px;
+}
+
+#profileSubmitBtnContainer {
+    width: 40%;
+}
+
+.custom-floatlabel:has(input.p-filled) #profilebirthdayLabel {
+    transform: translateX(-48%) translateY(-55%);
+}
+
+.status-message-profile {
+    color: #E7DFC6;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1rem;
+    margin: 100px;
+}
+
+.status-message-profile.error {
+    color: #e57373;
+    margin: 50px;
 }
