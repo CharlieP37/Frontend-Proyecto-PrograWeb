@@ -86,15 +86,16 @@ const ActionBar = ({
               </div>
             )}
           </div>
-
           <div className="song-actions">
-            <Button
-              icon="pi pi-play-circle"
-              className='song-listen-window-button'
-              onClick={handleMusic}
-              tooltip='Reproducir Canción'
-              tooltipOptions={{position: "top"}}
-            />
+            {url ? (
+              <Button
+                icon="pi pi-play-circle"
+                className='song-listen-window-button'
+                onClick={handleMusic}
+                tooltip='Reproducir Canción'
+                tooltipOptions={{position: "top"}}
+              />)
+            : (<></>) }
           </div>
         </div>
       </div>
